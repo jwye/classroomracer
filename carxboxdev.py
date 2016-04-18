@@ -38,15 +38,15 @@ def padprintout():
         # the other.
         axes = JX.get_numaxes()  #
         print("Number of axes: {}".format(axes) )
-        for i in range( axes ):
-            axis = JX.get_axis( i )
-            print("Axis {} value: {:>6.3f}".format(i, axis) )
+        a = JX.get_axis( i )
+        print("LP{},RP{},RT{},LT{}"
+        .format(str(a(0,1)),str(a(2,3)),a(4),a(5))
     ##############################################################################
         #get buttons
         buttons = JX.get_numbuttons()
         print("Number of buttons: {}".format(buttons) )
         b=JX.get_button
-        print("A:{},B:{},X:{},Y:{},LB:{},RB:{},BACK:{},START:{},XBOX:{},LP:{},RP:{},"
+        print("A:{},B:{},X:{},Y:{},LB:{},RB:{},BACK:{},START:{},XBOX:{},LP:{},RP:{}"
         .format(b(0),b(1),b(2),b(3),b(4),b(5),b(6),b(7),b(8),b(9),b(10)) )
     #############################################################################
         # Hat switch. All or nothing for direction, not like joysticks.
