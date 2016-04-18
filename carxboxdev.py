@@ -21,17 +21,18 @@ clock = pygame.time.Clock()
 # Initialize the joysticks
 pygame.joystick.init()
 
-# Get count of joysticks
-J_count = pygame.joystick.get_count()
-for i in range(J_count):
-    JX = pygame.joystick.Joystick(i)
-    JX.init()
-    print("Joystick {}".format(i) )
-    # Get the name from the OS for the controller/joystick
-    name = JX.get_name()   #名字
-    print("Joystick name: {}".format(name) )
 
-class padprintout:
+
+def padprintout :
+# Get count of joysticks
+    J_count = pygame.joystick.get_count()
+    for i in range(J_count):
+        JX = pygame.joystick.Joystick(i)
+        JX.init()
+        print("Joystick {}".format(i) )
+        # Get the name from the OS for the controller/joystick
+        name = JX.get_name()   #名字
+        print("Joystick name: {}".format(name) )
     ##############################################################################
         # Usually axis run in pairs, up/down for one, and left/right for
         # the other.
@@ -56,7 +57,6 @@ class padprintout:
             hat = JX.get_hat( i )
             print("Hat {} value: {}".format(i, str(hat)) )
     #################################################################
-        # Limit to 20 frames per second
         if JX.get_button(8)==1: # If user clicked close
             done=True # Flag that we are done so we exit this loop
 
@@ -64,7 +64,7 @@ class padprintout:
 
 while done==False:
     for event in pygame.event.get(): # User did something
-        padprintout()
+        padprintout
         # Possible joystick actions: JOYAXISMOTION JOYBALLMOTION JOYBUTTONDOWN JOYBUTTONUP JOYHATMOTION
         if event.type == pygame.JOYBUTTONDOWN :
             print("Joystick button pressed.")
