@@ -52,7 +52,7 @@ while done==False:
             hat = JX.get_hat( i )
             print("Hat {} value: {}".format(i, str(hat)) )
     ##################################################################
-        if JX.get_button(8)==1:
+        if JX.get_button(8)==0:
             done=True
         # Limit to 20 frames per second
         clock.tick(10)
