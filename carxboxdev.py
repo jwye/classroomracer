@@ -26,35 +26,35 @@ for i in range(joystick_count):
     joystick = pygame.joystick.Joystick(i)
     joystick.init()
 
-    print(screen, "Joystick {}".format(i) )
+    print("Joystick {}".format(i) )
 
     # Get the name from the OS for the controller/joystick
     name = joystick.get_name()   #名字
-    print(screen, "Joystick name: {}".format(name) )
+    print("Joystick name: {}".format(name) )
 ##############################################################################
     # Usually axis run in pairs, up/down for one, and left/right for
     # the other.
     axes = joystick.get_numaxes()  #
-    print(screen, "Number of axes: {}".format(axes) )
+    print("Number of axes: {}".format(axes) )
     for i in range( axes ):
         axis = joystick.get_axis( i )
-        print(screen, "Axis {} value: {:>6.3f}".format(i, axis) )
+        print("Axis {} value: {:>6.3f}".format(i, axis) )
 ##############################################################################
     #get buttons
     buttons = joystick.get_numbuttons()
-    print(screen, "Number of buttons: {}".format(buttons) )
+    print("Number of buttons: {}".format(buttons) )
     for i in range( buttons ):
         button = joystick.get_button( i )
-        print(screen, "Button {:>2} value: {}".format(i,button) )
+        print("Button {:>2} value: {}".format(i,button) )
 #############################################################################
     # Hat switch. All or nothing for direction, not like joysticks.
     # Value comes back in an array.
     hats = joystick.get_numhats()
-    print(screen, "Number of hats: {}".format(hats) )
+    print("Number of hats: {}".format(hats) )
 
     for i in range( hats ):
         hat = joystick.get_hat( i )
-        print(screen, "Hat {} value: {}".format(i, str(hat)) )
+        print("Hat {} value: {}".format(i, str(hat)) )
 ##################################################################
     if joystick.get_button(8)==1:
         done=True
