@@ -76,7 +76,7 @@ while done==False:
 
 
     # Limit to 20 frames per second
-    clock.tick(3)
+    clock.tick(1)
 
 
         # Close the window and quit.
