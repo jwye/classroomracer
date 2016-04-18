@@ -58,7 +58,9 @@ def padprintout():
             print("Hat {} value: {}".format(i, str(hat)) )
     #################################################################
         if JX.get_button(8)==1: # If user clicked close
-            done=True # Flag that we are done so we exit this loop
+            #done=True # Flag that we are done so we exit this loop
+            pygame.quit()
+            quit()
 
 # -------- Main Program Loop -----------
 padprintout()
@@ -75,11 +77,9 @@ while done==False:
 
 
     # Limit to 20 frames per second
-    clock.tick(30)
+    clock.tick(3)
 
 
         # Close the window and quit.
         # If you forget this line, the program will 'hang'
         # on exit if running from IDLE.
-pygame.quit()
-quit()
