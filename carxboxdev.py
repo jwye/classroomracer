@@ -23,7 +23,7 @@ pygame.joystick.init()
 
 
 
-def padprintout:
+def padprintout():
 # Get count of joysticks
     J_count = pygame.joystick.get_count()
     for i in range(J_count):
