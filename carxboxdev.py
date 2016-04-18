@@ -1,6 +1,13 @@
 import pygame
 import os, sys
 import time
+#＃＃＃也不太知道的
+from os import popen
+from sys import stdin
+import smbus
+import RPi.GPIO as GPIO
+import re
+#也不太知道的
 
 
 pygame.init()
