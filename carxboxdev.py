@@ -25,13 +25,14 @@ pygame.joystick.init()
 # -------- Main Program Loop -----------
 
 while done==False:
-    for event in pygame.event.get(): # User did something
+#    for event in pygame.event.get(): # User did something
         # Possible joystick actions: JOYAXISMOTION JOYBALLMOTION JOYBUTTONDOWN JOYBUTTONUP JOYHATMOTION
-        if event.type == pygame.JOYBUTTONDOWN:
-            print("Joystick button pressed.")
-        if event.type == pygame.JOYBUTTONUP:
-            print("Joystick button released.")
+#        if event.type == pygame.JOYBUTTONDOWN:
+#            print("Joystick button pressed.")
+#        if event.type == pygame.JOYBUTTONUP:
+#            print("Joystick button released.")
 
+    event=pygame.event.get()
     # ALL CODE TO DRAW SHOULD GO ABOVE THIS COMMENT
     # Get count of joysticks
     J_count = pygame.joystick.get_count()
