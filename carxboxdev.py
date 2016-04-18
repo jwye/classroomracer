@@ -45,8 +45,9 @@ def padprintout():
         #get buttons
         buttons = JX.get_numbuttons()
         print("Number of buttons: {}".format(buttons) )
-        button=JX.get_button
-        print("A:{},B:{},X:{},Y:{},LB:{},RB:{},BACK:{},START:{},XBOX:{},LP:{},RP:{},".format(button) )
+        b=JX.get_button
+        print("A:{},B:{},X:{},Y:{},LB:{},RB:{},BACK:{},START:{},XBOX:{},LP:{},RP:{},"
+        .format(b(0),b(1),b(2),b(3),b(4),b(5),b(6),b(7),b(8),b(9),b(10)) )
     #############################################################################
         # Hat switch. All or nothing for direction, not like joysticks.
         # Value comes back in an array.
