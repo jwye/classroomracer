@@ -61,8 +61,10 @@ def padprintout():
             done=True # Flag that we are done so we exit this loop
 
 # -------- Main Program Loop -----------
+padprintout()
 
 while done==False:
+
     for event in pygame.event.get(): # User did something
         padprintout
         # Possible joystick actions: JOYAXISMOTION JOYBALLMOTION JOYBUTTONDOWN JOYBUTTONUP JOYHATMOTION
