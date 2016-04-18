@@ -25,7 +25,7 @@ pygame.joystick.init()
 # -------- Main Program Loop -----------
 
 while done==False:
-    event = pygame.event.get(): # User did something
+    event = pygame.event.get()# User did something
         # Possible joystick actions: JOYAXISMOTION JOYBALLMOTION JOYBUTTONDOWN JOYBUTTONUP JOYHATMOTION
         if event.type == pygame.JOYBUTTONDOWN:
             print("Joystick button pressed.")
