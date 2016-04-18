@@ -71,7 +71,7 @@ while done==False:
             done=True # Flag that we are done so we exit this loop
 
     # Limit to 20 frames per second
-    clock.tick(30)
+    clock.tick(60)
         # Close the window and quit.
         # If you forget this line, the program will 'hang'
         # on exit if running from IDLE.
