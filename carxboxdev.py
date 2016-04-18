@@ -70,7 +70,7 @@ while done==False:
         if JX.get_button(8)==1: # If user clicked close
             done=True # Flag that we are done so we exit this loop
     # Limit to 20 frames per second
-    clock.tick(10)
+    clock.tick(2)
 
 
         # Close the window and quit.
