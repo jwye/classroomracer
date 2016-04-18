@@ -40,7 +40,7 @@ def padprintout():
         print("Number of axes: {}".format(axes) )
         a = JX.get_axis
         print("LP{},RP{},RT{},LT{}"
-        .format(str(a(0,1)),str(a(2,3)),a(4),a(5))
+        .format(str(a(0,1)),str(a(2,3)),a(4),a(5)))
     ##############################################################################
         #get buttons
         buttons = JX.get_numbuttons()
@@ -53,9 +53,8 @@ def padprintout():
         # Value comes back in an array.
         hats = JX.get_numhats()
         print("Number of hats: {}".format(hats) )
-        for i in range( hats ):
-            hat = JX.get_hat( i )
-            print("Hat {} value: {}".format(i, str(hat)) )
+        hat = JX.get_hat
+        print("Hat {} value: {}".format(i, str(hat)) )
     #################################################################
         if JX.get_button(8)==1: # If user clicked close
             #done=True # Flag that we are done so we exit this loop
