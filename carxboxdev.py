@@ -64,18 +64,16 @@ class padprintout:
 
 while done==False:
     for event in pygame.event.get(): # User did something
+        padprintout()
         # Possible joystick actions: JOYAXISMOTION JOYBALLMOTION JOYBUTTONDOWN JOYBUTTONUP JOYHATMOTION
         if event.type == pygame.JOYBUTTONDOWN :
             print("Joystick button pressed.")
-            padprintout()
         if event.type == pygame.JOYBUTTONUP:
             print("Joystick button released.")
-            padprintout()
 
 
-    padprintout()
     # Limit to 20 frames per second
-    clock.tick(2)
+    clock.tick(30)
 
 
         # Close the window and quit.
