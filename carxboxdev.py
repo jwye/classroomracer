@@ -66,8 +66,10 @@ while done==False:
         # Possible joystick actions: JOYAXISMOTION JOYBALLMOTION JOYBUTTONDOWN JOYBUTTONUP JOYHATMOTION
         if event.type == pygame.JOYBUTTONDOWN :
             print("Joystick button pressed.")
+            padprintout()
         if event.type == pygame.JOYBUTTONUP:
             print("Joystick button released.")
+            padprintout()
 
 
     padprintout()
