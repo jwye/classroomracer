@@ -70,7 +70,7 @@ while done==False:
             print("Joystick button released.")
 
 
-    padprintout
+    padprintout()
     # Limit to 20 frames per second
     clock.tick(2)
 
