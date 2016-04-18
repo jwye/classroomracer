@@ -21,11 +21,9 @@ while done==False:
     # Get count of joysticks
     JX_count = pygame.joystick.get_count()
     for i in range(joystick_count):
-    JX = pygame.joystick.Joystick(i)
-    JX.init()
-
-    print("Joystick {}".format(i) )
-
+        JX = pygame.joystick.Joystick(i)
+        JX.init()
+        print("Joystick {}".format(i) )
     # Get the name from the OS for the controller/joystick
     name = JX.get_name()   #名字
     print("Joystick name: {}".format(name) )
