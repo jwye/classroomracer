@@ -35,7 +35,7 @@ while done==False:
     event=pygame.event.get()
     # ALL CODE TO DRAW SHOULD GO ABOVE THIS COMMENT
     # Get count of joysticks
-    if event.type == pygame.JOYBUTTONDOWN || event.type == pygame.JOYBUTTONUP:
+    if event.type == pygame.JOYBUTTONDOWN or event.type == pygame.JOYBUTTONUP:
         J_count = pygame.joystick.get_count()
         for i in range(J_count):
             JX = pygame.joystick.Joystick(i)
