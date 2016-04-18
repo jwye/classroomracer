@@ -39,11 +39,12 @@ def padprintout():
         hat = JX.get_hat(i)
 
         print("Joystick {} : {} = LP[{:>6.2f},{:>6.2f}],LT[{:>6.2f}] || RP[{:>6.2f},{:>6.2f}],RT[{:>6.2f}] || A:{},B:{},X:{},Y:{} = LB:{},RB:{} LP:{},RP:{} || BACK:{},START:{},XBOX:{} || hat: {}"
-        .format(i,name,a(0),a(1),a(2),a(3),a(4),a(5),b(0),b(1),b(2),b(3),b(4),b(5),b(9),b(10),b(6),b(7),b(8), str(hat)))
+        .format(i,name,a(0),-a(1),a(2),a(3),-a(4),a(5),b(0),b(1),b(2),b(3),b(4),b(5),b(9),b(10),b(6),b(7),b(8), str(hat)))
 
 
         if JX.get_button(8)==1: # If user clicked close    #done=True # Flag that we are done so we exit this loop
             pygame.quit()
+            quit()
 
 # -------- Main Program Loop -----------
 padprintout()
@@ -54,11 +55,13 @@ while done==False:
         # Possible joystick actions: JOYAXISMOTION JOYBALLMOTION JOYBUTTONDOWN JOYBUTTONUP JOYHATMOTION
 
         if event.type == pygame.JOYBUTTONDOWN:
+            padprintout()
             print("Joystick button pressed.")
         if event.type == pygame.JOYBUTTONUP:
+            padprintout()
             print("Joystick button released.")
 
-        padprintout()    
+        #padprintout()
     # Limit to 20 frames per second
     #clock.tick(1)
 
