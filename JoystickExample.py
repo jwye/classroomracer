@@ -1,4 +1,7 @@
 import pygame
+import os, sys
+import threading
+import time
 
 # Define some colors
 BLACK    = (   0,   0,   0)
@@ -32,7 +35,7 @@ class TextPrint:
 pygame.init()
 
 # Set the width and height of the screen [width,height]
-size = [500, 700]
+size = [700, 700]
 screen = pygame.display.set_mode(size)
 
 pygame.display.set_caption("My Game")
@@ -84,12 +87,12 @@ while done==False:
         textPrint.indent()
 
         # Get the name from the OS for the controller/joystick
-        name = joystick.get_name()
+        name = joystick.get_name()   #名字
         textPrint.print(screen, "Joystick name: {}".format(name) )
 
         # Usually axis run in pairs, up/down for one, and left/right for
         # the other.
-        axes = joystick.get_numaxes()
+        axes = joystick.get_numaxes()  #
         textPrint.print(screen, "Number of axes: {}".format(axes) )
         textPrint.indent()
 
@@ -97,7 +100,7 @@ while done==False:
             axis = joystick.get_axis( i )
             textPrint.print(screen, "Axis {} value: {:>6.3f}".format(i, axis) )
         textPrint.unindent()
-
+    #######################################################
         buttons = joystick.get_numbuttons()
         textPrint.print(screen, "Number of buttons: {}".format(buttons) )
         textPrint.indent()
@@ -106,7 +109,7 @@ while done==False:
             button = joystick.get_button( i )
             textPrint.print(screen, "Button {:>2} value: {}".format(i,button) )
         textPrint.unindent()
-
+##################################################################
         # Hat switch. All or nothing for direction, not like joysticks.
         # Value comes back in an array.
         hats = joystick.get_numhats()
