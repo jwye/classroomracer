@@ -17,11 +17,10 @@ pygame.joystick.init()
 
 # -------- Main Program Loop -----------
 while done==False:
-
     # ALL CODE TO DRAW SHOULD GO ABOVE THIS COMMENT
     # Get count of joysticks
     JX_count = pygame.joystick.get_count()
-for i in range(joystick_count):
+    for i in range(joystick_count):
     JX = pygame.joystick.Joystick(i)
     JX.init()
 
