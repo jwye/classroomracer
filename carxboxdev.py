@@ -38,7 +38,7 @@ def padprintout():
         # the other.
         axes = JX.get_numaxes()  #
         print("Number of axes: {}".format(axes) )
-        a = JX.get_axis( i )
+        a = JX.get_axis
         print("LP{},RP{},RT{},LT{}"
         .format(str(a(0,1)),str(a(2,3)),a(4),a(5))
     ##############################################################################
