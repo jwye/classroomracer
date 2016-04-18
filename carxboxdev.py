@@ -32,10 +32,10 @@ while done==False:
         if event.type == pygame.JOYBUTTONUP:
             print("Joystick button released.")
 # ALL CODE TO DRAW SHOULD GO ABOVE THIS COMMENT
-        # Get count of joysticks
-        J_count = pygame.joystick.get_count()
-        i=0
-    #for i in range(J_count):
+    # Get count of joysticks
+    J_count = pygame.joystick.get_count()
+
+    for i in range(J_count):
         JX = pygame.joystick.Joystick(i)
         JX.init()
         print("Joystick {}".format(i) )
@@ -71,7 +71,7 @@ while done==False:
             done=True # Flag that we are done so we exit this loop
 
     # Limit to 20 frames per second
-    clock.tick(60)
+    clock.tick(20)
         # Close the window and quit.
         # If you forget this line, the program will 'hang'
         # on exit if running from IDLE.
