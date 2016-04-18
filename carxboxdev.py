@@ -21,7 +21,7 @@ clock = pygame.time.Clock()
 # Initialize the joysticks
 pygame.joystick.init()
 
-class padprintout
+class padprintout:
     # Get count of joysticks
     J_count = pygame.joystick.get_count()
     for i in range(J_count):
