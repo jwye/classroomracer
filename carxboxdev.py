@@ -21,16 +21,17 @@ clock = pygame.time.Clock()
 # Initialize the joysticks
 pygame.joystick.init()
 
+# Get count of joysticks
+J_count = pygame.joystick.get_count()
+for i in range(J_count):
+    JX = pygame.joystick.Joystick(i)
+    JX.init()
+    print("Joystick {}".format(i) )
+    # Get the name from the OS for the controller/joystick
+    name = JX.get_name()   #名字
+    print("Joystick name: {}".format(name) )
+
 class padprintout:
-    # Get count of joysticks
-    J_count = pygame.joystick.get_count()
-    for i in range(J_count):
-        JX = pygame.joystick.Joystick(i)
-        JX.init()
-        print("Joystick {}".format(i) )
-        # Get the name from the OS for the controller/joystick
-        name = JX.get_name()   #名字
-        print("Joystick name: {}".format(name) )
     ##############################################################################
         # Usually axis run in pairs, up/down for one, and left/right for
         # the other.
