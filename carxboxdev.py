@@ -16,7 +16,7 @@ pygame.joystick.init()
 
 
 # -------- Main Program Loop -----------
-while Hold==False
+
 while done==False:
 
 # ALL CODE TO DRAW SHOULD GO ABOVE THIS COMMENT
