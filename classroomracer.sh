@@ -1,4 +1,4 @@
 sudo rmmod xpad
 sudo xboxdrv --silent --detach-kernel-driver &
 
-python carxboxdev.py 
+python3 carxboxdev.py 
