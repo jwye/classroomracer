@@ -1,7 +1,6 @@
 import pygame
 from pygame.locals import *
 import os, sys
-import threading
 import time
 
 
@@ -19,17 +18,6 @@ pygame.joystick.init()
 
 # -------- Main Program Loop -----------
 while done==False:
-    # EVENT PROCESSING STEP
-    for event in pygame.event.get(): # User did something
-        if event.type == pygame.QUIT: # If user clicked close
-            done=True # Flag that we are done so we exit this loop
-
-        # Possible joystick actions: JOYAXISMOTION JOYBALLMOTION JOYBUTTONDOWN JOYBUTTONUP JOYHATMOTION
-        if event.type == pygame.JOYBUTTONDOWN:
-            print("Joystick button pressed.")
-        if event.type == pygame.JOYBUTTONUP:
-            print("Joystick button released.")
-
 
     # ALL CODE TO DRAW SHOULD GO ABOVE THIS COMMENT
     # Get count of joysticks
@@ -68,7 +56,8 @@ for i in range(joystick_count):
         hat = joystick.get_hat( i )
         print(screen, "Hat {} value: {}".format(i, str(hat)) )
 ##################################################################
-
+    if joystick.get_button(8)==1:
+        done=True
     # Limit to 20 frames per second
     clock.tick(20)
 
