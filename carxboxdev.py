@@ -8,7 +8,7 @@ pygame.init()
 done = False
 
 # Used to manage how fast the screen updates
-clock = pygame.time.Clock()
+clock = pygame.time
 
 # Initialize the joysticks
 pygame.joystick.init()
