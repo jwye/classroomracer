@@ -47,7 +47,7 @@ for i in range(J_count):
 print("wait start command...")
 while done==False:
     event=pygame.event.wait()
-    print("wait...{}",.format(p))
+    print("wait...{}".format(p))
     p+=1
     if event.type==pygame.JOYBUTTONDOWN and JX.get_button(7)==1:
         GO=1
