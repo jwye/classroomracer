@@ -14,18 +14,19 @@ clock = pygame.time
 pygame.joystick.init()
 
 
-def getpadevent():
-    # Get the name from the OS for the controller/joystick
-    name = JX.get_name()   #名字
-    axes = JX.get_numaxes()  #
-    a = JX.get_axis
-    buttons = JX.get_numbuttons()
-    b=JX.get_button
-    hats = JX.get_numhats()
-    hat = JX.get_hat(i)
+#def getpadevent():
+
+
 
 def padprintout():
-    # Get count of joysticks
+    name = JX.get_name()   #名字
+    #axes = JX.get_numaxes()  #
+    a = JX.get_axis
+    #buttons = JX.get_numbuttons()
+    b=JX.get_button
+    #hats = JX.get_numhats()
+    hat = JX.get_hat(i)
+
     print("Joystick {} : {} = LP[{:>6.2f},{:>6.2f}],LT[{:>6.2f}] \
     || RP[{:>6.2f},{:>6.2f}],RT[{:>6.2f}] \
     || A:{},B:{},X:{},Y:{} = LB:{},RB:{} LP:{},RP:{} \
@@ -37,6 +38,7 @@ def padprintout():
 
 J_count = pygame.joystick.get_count()
 for i in range(J_count):
+    global JX
     JX = pygame.joystick.Joystick(i)
     JX.init()
     getpadevent()
@@ -47,10 +49,10 @@ while done==False:
 
     for event in pygame.event.get(): # User did something
         # Possible joystick actions: JOYAXISMOTION JOYBALLMOTION JOYBUTTONDOWN JOYBUTTONUP JOYHATMOTION
-        getpadevent()
+        #getpadevent()
         padprintout()
         if event.type == pygame.JOYBUTTONDOWN:
-            getpadevent()
+            #getpadevent()
             if JX.get_button(8)==1: # If user clicked close    #done=True # Flag that we are done so we exit this loo
                 pygame.quit()
                 quit()
