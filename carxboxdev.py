@@ -57,26 +57,26 @@ while done==False:
     if GO==1:
         print("start!")
         while GO==1:
-            event=pygame.event.get()
-            if event.type == pygame.JOYBUTTONDOWN:
-                if JX.get_button(7)==1: # If user clicked close    #done=True # Flag that we are done so we exit this loo
-                    GO=0
-                    print("wait start command...")
-                    break
-                # go forward Lx is JX.get_axis(0)
-                while JX.get_button(2)==1: #xboxpad X
-                    print("go forward Lx = {} RT = {}"\
-                          .format(JX.get_axis(0),JX.get_axis(5)))
-                    clock.wait(500)
-                    if JX.get_button(2)==0:
-                        print("BREAK!!! forward Lx = {} RT = {}"\
+            for event in pygame.event.get():
+                if event.type == pygame.JOYBUTTONDOWN:
+                    if JX.get_button(7)==1: # If user clicked close    #done=True # Flag that we are done so we exit this loo
+                        GO=0
+                        print("wait start command...")
+                        break
+                    # go forward Lx is JX.get_axis(0)
+                    while JX.get_button(2)==1: #xboxpad X
+                        print("go forward Lx = {} RT = {}"\
                               .format(JX.get_axis(0),JX.get_axis(5)))
+                        clock.wait(500)
+                        if JX.get_button(2)==0:
+                            print("BREAK!!! forward Lx = {} RT = {}"\
+                                  .format(JX.get_axis(0),JX.get_axis(5)))
 
-                # go forward Lx is JX.get_axis(0)
-                while JX.get_button(3)==1:
-                    print("backward Lx = {} RT = {}"\
-                          .format(JX.get_axis(0),JX.get_axis(5)))
-                    clock.wait(500)
-                    if JX.get_button(3)==0:
-                        print("BREAK!!! backward Lx = {} RT = {}"\
+                    # go forward Lx is JX.get_axis(0)
+                    while JX.get_button(3)==1:
+                        print("backward Lx = {} RT = {}"\
                               .format(JX.get_axis(0),JX.get_axis(5)))
+                        clock.wait(500)
+                        if JX.get_button(3)==0:
+                            print("BREAK!!! backward Lx = {} RT = {}"\
+                                  .format(JX.get_axis(0),JX.get_axis(5)))
