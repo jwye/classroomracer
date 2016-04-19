@@ -13,8 +13,7 @@ pygame.joystick.init()
 
 
 #def getpadevent():
-global JX AX BU HA
-GO=0
+global JX,AX,BU,HA,GO=0
 
 def padprintout():
     name = JX.get_name()   #名字
