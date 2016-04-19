@@ -44,7 +44,7 @@ for i in range(J_count):
     JX.init()
     #getpadevent()
     padprintout()
-while done==False
+while 1:
     event=pygame.event.wait()
     if event.type==pygame.JOYBUTTONDOWN and JX.get_button(7)==1:
         print("wait start command...")
