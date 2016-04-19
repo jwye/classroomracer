@@ -44,7 +44,10 @@ for i in range(J_count):
     JX.init()
     #getpadevent()
     padprintout()
-print("wait start command...")
+while 1
+    event=pygame.event.wait()
+    if event.type==pygame.JOYBUTTONDOWN and JX.get_button(7)==1:
+        print("wait start command...")
 while done==False:
     clock.wait(50)
     if GO==1:
@@ -86,11 +89,6 @@ while done==False:
                     pygame.quit()
                     quit()
                 elif JX.get_button(7)==1: # If user clicked close    #done=True # Flag that we are done so we exit this loo
-                    clock.wait(3000)
-                    if JX.get_button(7)==1:
-                        print("release")
-                        clock.wait(6000)
-                        if JX.get_button(7)==0:
                             GO=1
 
 
