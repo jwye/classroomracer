@@ -45,18 +45,34 @@ for i in range(J_count):
     padprintout()
 
 while done==False:
-    clock.wait(500)
-    padprintout()
+    clock.wait(50)
     for event in pygame.event.get(): # User did something
         # Possible joystick actions: JOYAXISMOTION JOYBALLMOTION JOYBUTTONDOWN JOYBUTTONUP JOYHATMOTION
-        #getpadevent()
-        #padprintout()
+        padprintout()
         if event.type == pygame.JOYBUTTONDOWN:
-            #getpadevent()
             if JX.get_button(8)==1: # If user clicked close    #done=True # Flag that we are done so we exit this loo
                 pygame.quit()
                 quit()
-
+            elif JX.get_button(7)==1:
+                print("~~~~~~start button on~~~~~~")
+            elif JX.get_button(2)==1: #xboxpad X
+                # go forward Lx is JX.get_axis(0)
+                print("go forward Lx = {}".format(JX.get_axis(0)))
+            elif JX.get_button(3)==1:
+                # go forward Lx is JX.get_axis(0)
+                print("backward Lx = {}".format(JX.get_axis(0)))
+        if event.type == pygame.JOYBUTTONUP:
+            if JX.get_button(8)==1: # If user clicked close    #done=True # Flag that we are done so we exit this loo
+                pygame.quit()
+                quit()
+            elif JX.get_button(7)==1:
+                print("~~~~~~start button off~~~~~~")
+            elif JX.get_button(2)==0: #xboxpad X
+                # go forward Lx is JX.get_axis(0)
+                print("BREAK!!! go forward Lx = {}".format(JX.get_axis(0)))
+            elif JX.get_button(3)==0:
+                # go forward Lx is JX.get_axis(0)
+                print("BREAK!!! backward Lx = {}".format(JX.get_axis(0)))
         #if event.type == pygame.JOYBUTTONDOWN or event.type == pygame.JOYBUTTONUP or \
          #event.type == pygame.JOYAXISMOTION or event.type == pygame.JOYHATMOTION:
 
