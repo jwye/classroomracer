@@ -47,7 +47,7 @@ for i in range(J_count):
 
 while done==False:
     print("wait start command...")
-    event=pygame.event.wait()
+    event=pygame.event.wait(JOYBUTTONDOWN)
     if event.type==pygame.JOYBUTTONDOWN and JX.get_button(7)==1:
         GO=1
     elif event.type==pygame.JOYBUTTONDOWN and JX.get_button(8)==1: # If user clicked close    #done=True # Flag that we are done so we exit this loo
