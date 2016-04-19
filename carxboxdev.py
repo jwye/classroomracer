@@ -67,6 +67,7 @@ while done==False:
                         break
                     # go forward Lx is JX.get_axis(0)
                     while JX.get_button(2)==1: #xboxpad X
+                        event=pygame.event.get()
                         print("go forward Lx = {} RT = {}"\
                               .format(JX.get_axis(0),JX.get_axis(5)))
                         clock.wait(500)
@@ -76,6 +77,7 @@ while done==False:
 
                     # go forward Lx is JX.get_axis(0)
                     while JX.get_button(3)==1:
+                        event=pygame.event.get()
                         print("backward Lx = {} RT = {}"\
                               .format(JX.get_axis(0),JX.get_axis(5)))
                         clock.wait(500)
