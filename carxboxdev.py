@@ -44,10 +44,9 @@ for i in range(J_count):
     JX.init()
     #getpadevent()
     padprintout()
-
+print("wait start command...")
 while done==False:
-    print("wait start command...")
-    event=pygame.event.wait(JOYBUTTONDOWN)
+    event=pygame.event.wait()
     if event.type==pygame.JOYBUTTONDOWN and JX.get_button(7)==1:
         GO=1
     elif event.type==pygame.JOYBUTTONDOWN and JX.get_button(8)==1: # If user clicked close    #done=True # Flag that we are done so we exit this loo
@@ -61,8 +60,9 @@ while done==False:
             event=pygame.event.get()
             if event.type == pygame.JOYBUTTONDOWN:
                 if JX.get_button(7)==1: # If user clicked close    #done=True # Flag that we are done so we exit this loo
-                        GO=0
-                        break
+                    GO=0
+                    print("wait start command...")
+                    break
                 # go forward Lx is JX.get_axis(0)
                 while JX.get_button(2)==1: #xboxpad X
                     print("go forward Lx = {} RT = {}"\
