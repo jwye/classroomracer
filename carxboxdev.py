@@ -49,7 +49,7 @@ while done==False:
     clock.wait(50)
     if GO==1:
         print("start!")
-        while GO==1
+        while GO==1:
             for event in pygame.event.get(): # User did something
                 # Possible joystick actions: JOYAXISMOTION JOYBALLMOTION JOYBUTTONDOWN JOYBUTTONUP JOYHATMOTION
                 if event.type == pygame.JOYBUTTONDOWN:
