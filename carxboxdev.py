@@ -55,6 +55,7 @@ while done==False:
         print("QUIT")
         pygame.quit()
         quit()
+        break
 
     if GO==1:
         print("start!")
@@ -64,6 +65,12 @@ while done==False:
                     if JX.get_button(7)==1: # If user clicked close    #done=True # Flag that we are done so we exit this loo
                         GO=0
                         print("wait start command...")
+                        break
+                    elif JX.get_button(8)==1:
+                        GO=0
+                        print("QUIT")
+                        pygame.quit()
+                        quit()
                         break
                     # go forward Lx is JX.get_axis(0)
                     while JX.get_button(2)==1: #xboxpad X
