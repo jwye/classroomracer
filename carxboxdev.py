@@ -44,7 +44,7 @@ for i in range(J_count):
     JX.init()
     #getpadevent()
     padprintout()
-
+print("wait start command...")
 while done==False:
     clock.wait(50)
     if GO==1:
@@ -77,7 +77,7 @@ while done==False:
 
 
     while GO==0:
-        print("wait start command...")#padprintout()
+        #padprintout()
         for event in pygame.event.get(): # User did something
             # Possible joystick actions: JOYAXISMOTION JOYBALLMOTION JOYBUTTONDOWN JOYBUTTONUP JOYHATMOTION
             if event.type == pygame.JOYBUTTONDOWN:
