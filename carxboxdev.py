@@ -45,9 +45,10 @@ while done==False:
 
     for event in pygame.event.get(): # User did something
         # Possible joystick actions: JOYAXISMOTION JOYBALLMOTION JOYBUTTONDOWN JOYBUTTONUP JOYHATMOTION
-        padprintout()
-        clock.tick(4)
-        #if event.type == pygame.JOYBUTTONDOWN or event.type == pygame.JOYBUTTONUP:
+        if event.type == pygame.JOYBUTTONDOWN or event.type == pygame.JOYBUTTONUP or
+        event.type == JOYAXISMOTION or event.type == JOYHATMOTION:
+            padprintout()
+            clock.tick(4)
 
             # Limit to 20 frames per second
     #clock.tick(1)
