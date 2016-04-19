@@ -40,7 +40,7 @@ def padprintout():
 
         if JX.get_button(8)==1: # If user clicked close    #done=True # Flag that we are done so we exit this loop
             clock.wait(10000)
-             if JX.get_button(8)==1:
+            if JX.get_button(8)==1:
                 pygame.quit()
                 quit()
 
