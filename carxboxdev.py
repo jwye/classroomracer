@@ -41,7 +41,7 @@ for i in range(J_count):
     global JX
     JX = pygame.joystick.Joystick(i)
     JX.init()
-    getpadevent()
+    #getpadevent()
     padprintout()
 
 while done==False:
