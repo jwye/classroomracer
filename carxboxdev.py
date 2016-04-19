@@ -52,7 +52,7 @@ while done==False:
         # Possible joystick actions: JOYAXISMOTION JOYBALLMOTION JOYBUTTONDOWN JOYBUTTONUP JOYHATMOTION
         if event.type == pygame.JOYBUTTONDOWN or event.type == pygame.JOYBUTTONUP or \
          event.type == pygame.JOYAXISMOTION or event.type == pygame.JOYHATMOTION:
-            #padprintout()
+            L=0#padprintout()
 
 
             # Limit to 20 frames per second
