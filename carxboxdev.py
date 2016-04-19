@@ -54,7 +54,7 @@ while done==False:
         if event.type == pygame.JOYBUTTONDOWN or event.type == pygame.JOYBUTTONUP or \
          event.type == pygame.JOYAXISMOTION or event.type == pygame.JOYHATMOTION:
             padprintout()
-            clock.tick(2)
+            #clock.tick(2)
 
             # Limit to 20 frames per second
     #clock.tick(1)
