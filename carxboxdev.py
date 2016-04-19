@@ -33,15 +33,14 @@ def padprintout():
     .format(i,name,a(0),-a(1),(a(2)+1)/2,a(3),-a(4),(a(5)+1)/2,\
     b(0),b(1),b(2),b(3),b(4),b(5),b(9),b(10),b(6),b(7),b(8), str(hat)))
 
+# -------- Main Program Loop -----------
+
 J_count = pygame.joystick.get_count()
 for i in range(J_count):
     JX = pygame.joystick.Joystick(i)
     JX.init()
     getpadevent()
     padprintout()
-
-# -------- Main Program Loop -----------
-#padprintout()
 
 while done==False:
     clock.wait(500)
@@ -50,7 +49,7 @@ while done==False:
         # Possible joystick actions: JOYAXISMOTION JOYBALLMOTION JOYBUTTONDOWN JOYBUTTONUP JOYHATMOTION
         getpadevent()
         padprintout()
-        if event.type == pygame.JOYBUTTONDOWN
+        if event.type == pygame.JOYBUTTONDOWN:
             getpadevent()
             if JX.get_button(8)==1: # If user clicked close    #done=True # Flag that we are done so we exit this loo
                 pygame.quit()
