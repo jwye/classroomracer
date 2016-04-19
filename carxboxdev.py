@@ -49,8 +49,7 @@ while done==False:
 
     for event in pygame.event.get(): # User did something
         # Possible joystick actions: JOYAXISMOTION JOYBALLMOTION JOYBUTTONDOWN JOYBUTTONUP JOYHATMOTION
-        if event.type == pygame.JOYBUTTONDOWN or event.type == pygame.JOYBUTTONUP or \
-        event.type == JOYAXISMOTION or event.type == JOYHATMOTION:
+        if event.type == pygame.JOYBUTTONDOWN or event.type == pygame.JOYBUTTONUP or event.type == JOYAXISMOTION or event.type == JOYHATMOTION:
             padprintout()
             clock.tick(4)
 
