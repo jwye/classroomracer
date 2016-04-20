@@ -47,7 +47,7 @@ print("wait start command...")
 while done==False:
     event=pygame.event.wait()
     print("wait...{}".format(p))
-    clock.wait(500)
+    clock.wait(100)
     p+=1
     if event.type==pygame.JOYBUTTONDOWN and JX.get_button(7)==1:
         GO=1
