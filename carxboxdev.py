@@ -13,10 +13,14 @@ pygame.joystick.init()
 
 #def getpadevent():
 global JX
-Cf=1  # Cf is constant for  Rt, Ct is for Lx turning
-Ct=1
+Cf=1  # Cf is constant for  Rt,
+Ct=1  # Ct is for Lx turning,
+Cc=1   # center calibr
+Lxlim=0.12
+Rtlim=0.02
 GO=0
 p=0
+
 def padprintout():
     name = JX.get_name()   #名字
     #axes = JX.get_numaxes()  #
@@ -76,47 +80,90 @@ while done==False:
                         event=pygame.event.get()
                         Lx=JX.get_axis(0)
                         Rt=(JX.get_axis(5)+1)/2
-                        Dr=((-Ct*Lx)+(Cf*Rt))/2
-                        Dl=((Ct*Lx)+(Cf*Rt))/2
+                        if Rt >= Rtlim
+                            if -Lxlim<=Lx<=Lxlim
+                                Dr=Cf*Rt
+                                Dl=Cc*Dr
+                            elif Lx<-Lxlim #turn left
+                                Dr=(Cf*Rt)
+                                Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
+                            elif Lx>Lxlim #turn right
+                                Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx)))
+                                Dl=((Cf*Rt)
+                        else
+                            Dr=0
+                            Dl=0
 
                         print("go forward Turn(Lx)= {:>6.2f} \
                               Throttle(RT) = {:>6.2f}\
-                               => D Right={:>6.2f}, D Left={:>6.2f}"\
-                              .format(Lx,Rt,Dr,Dl))
+                               =>  D Left={:>6.2f}, D Right={:>6.2f} "\
+                              .format(Lx,Rt,Dl,Dr))
                         #
                         clock.wait(20)
                         if JX.get_button(2)==0:
                             Lx=JX.get_axis(0)
                             Rt=(JX.get_axis(5)+1)/2
-                            Dr=((-Ct*Lx)+(Cf*Rt))/2
-                            Dl=((Ct*Lx)+(Cf*Rt))/2
+                            if Rt >= Rtlim
+                                if -Lxlim<=Lx<=Lxlim
+                                    Dr=Cf*Rt
+                                    Dl=Cc*Dr
+                                elif Lx<-Lxlim #turn left
+                                    Dr=(Cf*Rt)
+                                    Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
+                                elif Lx>Lxlim #turn right
+                                    Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx)))
+                                    Dl=((Cf*Rt)
+                            else
+                                Dr=0
+                                Dl=0
 
                             print("forward !!BREAK!! Turn(Lx)= {:>6.2f} \
                                   Throttle(RT) = {:>6.2f}\
-                                   => D Right={:>6.2f}, D Left={:>6.2f}"\
-                                  .format(Lx,Rt,Dr,Dl))
+                                  =>  D Left={:>6.2f}, D Right={:>6.2f} "\
+                                  .format(Lx,Rt,Dl,Dr))
 
                     # go forward Lx is JX.get_axis(0)
                     while JX.get_button(3)==1:
                         event=pygame.event.get()
                         Lx=JX.get_axis(0)
                         Rt=(JX.get_axis(5)+1)/2
-                        Dr=((-Ct*Lx)+(Cf*Rt))/2
-                        Dl=((Ct*Lx)+(Cf*Rt))/2
+                        if Rt >= Rtlim
+                            if -Lxlim<=Lx<=Lxlim
+                                Dr=Cf*Rt
+                                Dl=Cc*Dr
+                            elif Lx<-Lxlim #turn left
+                                Dr=(Cf*Rt)
+                                Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
+                            elif Lx>Lxlim #turn right
+                                Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx)))
+                                Dl=((Cf*Rt)
+                        else
+                            Dr=0
+                            Dl=0
 
                         print("backward Turn(Lx)= {:>6.2f} \
                               Throttle(RT) = {:>6.2f}\
-                               => D Right={:>6.2f}, D Left={:>6.2f}"\
-                              .format(Lx,Rt,Dr,Dl))
+                              =>  D Left={:>6.2f}, D Right={:>6.2f} "\
+                              .format(Lx,Rt,Dl,Dr))
                         #
                         clock.wait(20)
                         if JX.get_button(3)==0:
                             Lx=JX.get_axis(0)
                             Rt=(JX.get_axis(5)+1)/2
-                            Dr=((-Ct*Lx)+(Cf*Rt))/2
-                            Dl=((Ct*Lx)+(Cf*Rt))/2
-
+                            if Rt >= Rtlim
+                                if -Lxlim<=Lx<=Lxlim
+                                    Dr=Cf*Rt
+                                    Dl=Cc*Dr
+                                elif Lx<-Lxlim #turn left
+                                    Dr=(Cf*Rt)
+                                    Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
+                                elif Lx>Lxlim #turn right
+                                    Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx)))
+                                    Dl=((Cf*Rt)
+                            else
+                                Dr=0
+                                Dl=0
                             print("backward !!BREAL!! Turn(Lx)= {:>6.2f} \
                                   Throttle(RT) = {:>6.2f}\
-                                   => D Right={:>6.2f}, D Left={:>6.2f}"\
-                                  .format(Lx,Rt,Dr,Dl))
+                                  =>  D Left={:>6.2f}, D Right={:>6.2f} "\
+                                  .format(Lx,Rt,Dl,Dr))
