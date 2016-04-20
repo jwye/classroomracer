@@ -80,17 +80,17 @@ while done==False:
                         event=pygame.event.get()
                         Lx=JX.get_axis(0)
                         Rt=(JX.get_axis(5)+1)/2
-                        if Rt >= Rtlim
-                            if -Lxlim<=Lx<=Lxlim
+                        if Rt >= Rtlim:
+                            if -Lxlim<=Lx<=Lxlim:
                                 Dr=Cf*Rt
                                 Dl=Cc*Dr
-                            elif Lx<-Lxlim #turn left
+                            elif Lx<-Lxlim :#turn left
                                 Dr=(Cf*Rt)
                                 Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
-                            elif Lx>Lxlim #turn right
+                            elif Lx>Lxlim :#turn right
                                 Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx)))
                                 Dl=((Cf*Rt)
-                        else
+                        else:
                             Dr=0
                             Dl=0
 
@@ -103,17 +103,17 @@ while done==False:
                         if JX.get_button(2)==0:
                             Lx=JX.get_axis(0)
                             Rt=(JX.get_axis(5)+1)/2
-                            if Rt >= Rtlim
-                                if -Lxlim<=Lx<=Lxlim
+                            if Rt >= Rtlim:
+                                if -Lxlim<=Lx<=Lxlim:
                                     Dr=Cf*Rt
                                     Dl=Cc*Dr
-                                elif Lx<-Lxlim #turn left
+                                elif Lx<-Lxlim :#turn left
                                     Dr=(Cf*Rt)
                                     Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
-                                elif Lx>Lxlim #turn right
+                                elif Lx>Lxlim :#turn right
                                     Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx)))
                                     Dl=((Cf*Rt)
-                            else
+                            else:
                                 Dr=0
                                 Dl=0
 
@@ -127,17 +127,17 @@ while done==False:
                         event=pygame.event.get()
                         Lx=JX.get_axis(0)
                         Rt=(JX.get_axis(5)+1)/2
-                        if Rt >= Rtlim
-                            if -Lxlim<=Lx<=Lxlim
+                        if Rt >= Rtlim:
+                            if -Lxlim<=Lx<=Lxlim:
                                 Dr=Cf*Rt
                                 Dl=Cc*Dr
-                            elif Lx<-Lxlim #turn left
+                            elif Lx<-Lxlim :#turn left
                                 Dr=(Cf*Rt)
                                 Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
-                            elif Lx>Lxlim #turn right
+                            elif Lx>Lxlim: #turn right
                                 Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx)))
                                 Dl=((Cf*Rt)
-                        else
+                        else:
                             Dr=0
                             Dl=0
 
@@ -150,17 +150,17 @@ while done==False:
                         if JX.get_button(3)==0:
                             Lx=JX.get_axis(0)
                             Rt=(JX.get_axis(5)+1)/2
-                            if Rt >= Rtlim
-                                if -Lxlim<=Lx<=Lxlim
+                            if Rt >= Rtlim:
+                                if -Lxlim<=Lx<=Lxlim:
                                     Dr=Cf*Rt
                                     Dl=Cc*Dr
-                                elif Lx<-Lxlim #turn left
+                                elif Lx<-Lxlim :#turn left
                                     Dr=(Cf*Rt)
                                     Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
-                                elif Lx>Lxlim #turn right
+                                elif Lx>Lxlim :#turn right
                                     Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx)))
                                     Dl=((Cf*Rt)
-                            else
+                            else:
                                 Dr=0
                                 Dl=0
                             print("backward !!BREAL!! Turn(Lx)= {:>6.2f} \
