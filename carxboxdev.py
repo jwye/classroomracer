@@ -88,7 +88,7 @@ while done==False:
                                 Dr=(Cf*Rt)
                                 Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
                             elif Lx>Lxlim :#turn right
-                                Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx)))
+                                Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
                                 Dl=((Cf*Rt)
                         else:
                             Dr=0
@@ -111,7 +111,7 @@ while done==False:
                                     Dr=(Cf*Rt)
                                     Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
                                 elif Lx>Lxlim :#turn right
-                                    Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx)))
+                                    Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
                                     Dl=((Cf*Rt)
                             else:
                                 Dr=0
@@ -135,7 +135,7 @@ while done==False:
                                 Dr=(Cf*Rt)
                                 Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
                             elif Lx>Lxlim: #turn right
-                                Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx)))
+                                Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
                                 Dl=((Cf*Rt)
                         else:
                             Dr=0
@@ -158,7 +158,7 @@ while done==False:
                                     Dr=(Cf*Rt)
                                     Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
                                 elif Lx>Lxlim :#turn right
-                                    Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx)))
+                                    Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
                                     Dl=((Cf*Rt)
                             else:
                                 Dr=0
