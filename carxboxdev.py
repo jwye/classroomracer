@@ -12,7 +12,9 @@ clock = pygame.time
 pygame.joystick.init()
 
 #def getpadevent():
-global JX,AX,BU,HA
+global JX
+Cf=1  # Cf is constant for  Rt, Ct is for Lx turning
+Ct=1
 GO=0
 p=0
 def padprintout():
@@ -23,9 +25,6 @@ def padprintout():
     b=JX.get_button
     #hats = JX.get_numhats()
     hat = JX.get_hat(i)
-    AX = a
-    BU = b
-    HA = hat
 
     print("Joystick {} : {} = LP[{:>6.2f},{:>6.2f}],  LT[{:>6.2f}]\
     || RP[{:>6.2f},{:>6.2f}],  RT[{:>6.2f}]\
@@ -48,6 +47,7 @@ print("wait start command...")
 while done==False:
     event=pygame.event.wait()
     print("wait...{}".format(p))
+    clock.wait(500)
     p+=1
     if event.type==pygame.JOYBUTTONDOWN and JX.get_button(7)==1:
         GO=1
@@ -75,19 +75,42 @@ while done==False:
                     # go forward Lx is JX.get_axis(0)
                     while JX.get_button(2)==1: #xboxpad X
                         event=pygame.event.get()
-                        print("go forward Lx = {} RT = {}"\
-                              .format(JX.get_axis(0),JX.get_axis(5)))
-                        clock.wait(500)
+                        Lx=JX.get_axis(0)
+                        Rt=(JX.get_axis(5)+1)/2
+                        Dr=((Cf*Lx)+(-Ct*Rt))/2
+                        Dl=((Cf*Lx)+(Ct*Rt))/2
+
+                        print("go forward Lx = {:>6.2f} RT = {:>6.2f}\
+                              => Dright={:>6.2f}, Dleft={:>6.2f}"\
+                              .format(Lx,Rt,Dr,Dl))
+                        #
+                        clock.wait(20)
                         if JX.get_button(2)==0:
-                            print("BREAK!!! forward Lx = {} RT = {}"\
-                                  .format(JX.get_axis(0),JX.get_axis(5)))
+                            Lx=JX.get_axis(0)
+                            Rt=(JX.get_axis(5)+1)/2
+                            Dr=((Cf*Lx)+(-Ct*Rt))/2
+                            Dl=((Cf*Lx)+(Ct*Rt))/2
+                            print("BREAK!!! forward Lx = {:>6.2f} RT = {:>6.2f}"\
+                                  => Dright={:>6.2f}, Dleft={:>6.2f}"\
+                                  .format(Lx,Rt,Dr,Dl))
 
                     # go forward Lx is JX.get_axis(0)
                     while JX.get_button(3)==1:
                         event=pygame.event.get()
-                        print("backward Lx = {} RT = {}"\
-                              .format(JX.get_axis(0),JX.get_axis(5)))
-                        clock.wait(500)
+                        Lx=JX.get_axis(0)
+                        Rt=(JX.get_axis(5)+1)/2
+                        Dr=((Cf*Lx)+(-Ct*Rt))/2
+                        Dl=((Cf*Lx)+(Ct*Rt))/2
+                        print("backward Lx = {:>6.2f} RT = {:>6.2f}"\
+                              => Dright={:>6.2f}, Dleft={:>6.2f}"\
+                              .format(Lx,Rt,Dr,Dl))
+                        #
+                        clock.wait(20)
                         if JX.get_button(3)==0:
-                            print("BREAK!!! backward Lx = {} RT = {}"\
-                                  .format(JX.get_axis(0),JX.get_axis(5)))
+                            Lx=JX.get_axis(0)
+                            Rt=(JX.get_axis(5)+1)/2
+                            Dr=((Cf*Lx)+(-Ct*Rt))/2
+                            Dl=((Cf*Lx)+(Ct*Rt))/2
+                            print("BREAK!!! backward Lx = {:>6.2f} RT = {:>6.2f}"\
+                                  => Dright={:>6.2f}, Dleft={:>6.2f}"\
+                                  .format(Lx,Rt,Dr,Dl))
