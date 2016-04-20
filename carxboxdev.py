@@ -90,7 +90,7 @@ while done==False:
                             Rt=(JX.get_axis(5)+1)/2
                             Dr=((Cf*Lx)+(-Ct*Rt))/2
                             Dl=((Cf*Lx)+(Ct*Rt))/2
-                            print("BREAK!!! forward Lx = {:>6.2f} RT = {:>6.2f}"\
+                            print("BREAK!!! forward Lx = {:>6.2f} RT = {:>6.2f}\
                                   => Dright={:>6.2f}, Dleft={:>6.2f}"\
                                   .format(Lx,Rt,Dr,Dl))
 
@@ -101,7 +101,7 @@ while done==False:
                         Rt=(JX.get_axis(5)+1)/2
                         Dr=((Cf*Lx)+(-Ct*Rt))/2
                         Dl=((Cf*Lx)+(Ct*Rt))/2
-                        print("backward Lx = {:>6.2f} RT = {:>6.2f}"\
+                        print("backward Lx = {:>6.2f} RT = {:>6.2f}\
                               => Dright={:>6.2f}, Dleft={:>6.2f}"\
                               .format(Lx,Rt,Dr,Dl))
                         #
@@ -111,6 +111,6 @@ while done==False:
                             Rt=(JX.get_axis(5)+1)/2
                             Dr=((Cf*Lx)+(-Ct*Rt))/2
                             Dl=((Cf*Lx)+(Ct*Rt))/2
-                            print("BREAK!!! backward Lx = {:>6.2f} RT = {:>6.2f}"\
+                            print("BREAK!!! backward Lx = {:>6.2f} RT = {:>6.2f}\
                                   => Dright={:>6.2f}, Dleft={:>6.2f}"\
                                   .format(Lx,Rt,Dr,Dl))
