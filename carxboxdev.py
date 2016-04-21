@@ -23,6 +23,21 @@ Rtlim=0.02
 GO=0
 p=0
 
+def drivengo():
+    Lx = JX.get_axis(0)
+    Rt = (JX.get_axis(5)+1)/2
+    Dr=0
+    Dl=0
+    if -Lxlim <= Lx <= Lxlim and Rt >= Rtlim :
+        Dr=Cf*Rt
+        Dl=Cc*Dr
+    elif Lx < -Lxlim and Rt >= Rtlim :#turn left
+        Dr=(Cf*Rt)
+        Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
+    elif Lx > Lxlim and Rt >= Rtlim :#turn right
+        Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
+        Dl=((Cf*Rt)
+            
 def padprintout():
     name = JX.get_name()   #名字
     #axes = JX.get_numaxes()  #
@@ -39,20 +54,6 @@ def padprintout():
     .format(i,name,a(0),-a(1),(a(2)+1)/2,a(3),-a(4),(a(5)+1)/2,\
     b(0),b(1),b(2),b(3),b(4),b(5),b(9),b(10),b(6),b(7),b(8), str(hat)))
 
-def drivengo():
-    Lx = JX.get_axis(0)
-    Rt = (JX.get_axis(5)+1)/2
-    Dr=0
-    Dl=0
-    if -Lxlim <= Lx <= Lxlim and Rt >= Rtlim :
-        Dr=Cf*Rt
-        Dl=Cc*Dr
-    elif Lx < -Lxlim and Rt >= Rtlim :#turn left
-        Dr=(Cf*Rt)
-        Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
-    elif Lx > Lxlim and Rt >= Rtlim :#turn right
-        Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
-        Dl=((Cf*Rt)
 
 
 
