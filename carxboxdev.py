@@ -24,6 +24,11 @@ GO=0
 p=0
 
 def dngo():
+    Lx = JX.get_axis(0)
+    Rt = (JX.get_axis(5)+1)/2
+    Dr=(Cf*Rt)+(Cf*Rt*Ct*(Lx))
+    Dl=(Cf*Rt)-(Cf*Rt*Ct*(Lx))
+    '''
     if -Lxlim <= Lx <= Lxlim and Rt >= Rtlim :
         Dr=Cf*Rt
         Dl=Cc*Dr
@@ -36,7 +41,7 @@ def dngo():
     elif Rt < Rtlim :
         Dr=0
         Dl=0
-
+'''
 def padprintout():
     name = JX.get_name()   #名字
     #axes = JX.get_numaxes()  #
@@ -96,10 +101,7 @@ while done==False:
                     # go forward Lx is JX.get_axis(0)
                     while JX.get_button(2)==1: #xboxpad X
                         event=pygame.event.get()
-                        Lx = JX.get_axis(0)
-                        Rt = (JX.get_axis(5)+1)/2
-                        Dr=(Cf*Rt)+(Cf*Rt*Ct*(Lx))
-                        Dl=(Cf*Rt)-(Cf*Rt*Ct*(Lx))
+                        dngo()
                         print("go forward Turn(Lx)= {:>6.2f} \
                               Throttle(RT) = {:>6.2f}\
                                =>  D Left={:>6.2f}, D Right={:>6.2f} "\
