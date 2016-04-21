@@ -39,16 +39,16 @@ def padprintout():
 def drivengo():
     Lx = JX.get_axis(0)
     Rt = (JX.get_axis(5)+1)/2
-    if -Lxlim<=Lx<=Lxlim and Rt>=Rtlim:
+    if -Lxlim<=Lx<=Lxlim and Rt>=Rtlim :
         Dr=Cf*Rt
         Dl=Cc*Dr
-    elif Lx<-Lxlim and Rt>=Rtlim:#turn left
+    elif Lx<-Lxlim and Rt>=Rtlim :#turn left
         Dr=(Cf*Rt)
         Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
-    elif Lx>Lxlim and Rt>=Rtlim:#turn right
+    elif Lx>Lxlim and Rt>=Rtlim :#turn right
         Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
         Dl=((Cf*Rt)
-    else:
+    elif Rt<Rtlim :
         Dr=0
         Dl=0
 
