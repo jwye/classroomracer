@@ -40,9 +40,6 @@ def dngo():
     elif Lx > Lxlim and Rt >= Rtlim :#turn right
         Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
         Dl=((Cf*Rt)
-    else:
-        pass
-
 
 def padprintout():
     name = JX.get_name()   #名字
