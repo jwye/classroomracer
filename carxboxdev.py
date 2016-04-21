@@ -80,7 +80,10 @@ while done==False:
                         event=pygame.event.get()
                         Lx=JX.get_axis(0)
                         Rt=(JX.get_axis(5)+1)/2
-                        if Rt >= Rtlim:
+                        if Rt <= Rtlim:
+                            Dr=0
+                            Dl=0
+                        else :
                             if -Lxlim<=Lx<=Lxlim:
                                 Dr=Cf*Rt
                                 Dl=Cc*Dr
@@ -90,9 +93,6 @@ while done==False:
                             elif Lx>Lxlim :#turn right
                                 Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
                                 Dl=((Cf*Rt)
-                        elif Rt<Rtlim:
-                            Dr=0
-                            Dl=0
 
                         print("go forward Turn(Lx)= {:>6.2f} \
                               Throttle(RT) = {:>6.2f}\
