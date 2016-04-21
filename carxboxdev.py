@@ -75,7 +75,7 @@ while done==False:
         pygame.quit()
         quit()
 
-    elif event.type==pygame.JOYBUTTONDOWN and JX.get_button(9)==1: # If user clicked close    #done=True # Flag that we are done so we exit this loo
+    elif event.type==pygame.JOYBUTTONDOWN and JX.get_button(6)==1: # If user clicked close    #done=True # Flag that we are done so we exit this loo
         print("REBOOT...")
         pygame.quit()
         clock.wait(3000)
