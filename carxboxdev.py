@@ -34,19 +34,16 @@ def dngo():
     if -Lxlim <= Lx <= Lxlim and Rt >= Rtlim :
         Dr=Cf*Rt
         Dl=Cc*Dr
-        pass
     elif Lx < -Lxlim and Rt >= Rtlim :#turn left
         Dr=(Cf*Rt)
         Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
-        pass
     elif Lx > Lxlim and Rt >= Rtlim :#turn right
         Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
-        Dl=((Cf*Rt)
-        pass
+        Dl=(Cf*Rt)
     elif Rt < Rtlim:
         Dr=0
         Dl=0
-        pass
+
 
 def padprintout():
     name = JX.get_name()   #名字
@@ -120,12 +117,10 @@ while done==False:
                             Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
                         elif Lx > Lxlim and Rt >= Rtlim :#turn right
                             Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
-                            Dl=((Cf*Rt)
+                            Dl=(Cf*Rt)
                         elif Rt < Rtlim :
                             Dr=0
                             Dl=0
-                        else:
-                            pass
 
                         print("go forward Turn(Lx)= {:>6.2f} \
                               Throttle(RT) = {:>6.2f}\
