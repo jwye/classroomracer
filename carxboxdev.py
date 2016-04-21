@@ -15,8 +15,8 @@ pygame.joystick.init()
 global JX
 global Lx
 global Rt
-global Dr
-global Dl
+Dr=0
+Dl=0
 Cf=1  # Cf is constant for  Rt,
 Ct=1  # Ct is for Lx turning,
 Cc=1   # center calibr
@@ -110,8 +110,8 @@ while done==False:
                         #dngo()
                         Lx = JX.get_axis(0)
                         Rt = (JX.get_axis(5)+1)/2
-                        Dr = (Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
-                        Dl = (Cf*Rt)+(Cf*Rt*Ct*abs(Lx))
+                        #Dr = (Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
+                        #Dl = (Cf*Rt)+(Cf*Rt*Ct*abs(Lx))
                         if -Lxlim <= Lx <= Lxlim and Rt >= Rtlim :
                             Dr=Cf*Rt
                             Dl=Cc*Dr
@@ -124,6 +124,8 @@ while done==False:
                         elif Rt < Rtlim :
                             Dr=0
                             Dl=0
+
+
 
                         print("go forward Turn(Lx)= {:>6.2f} \
                               Throttle(RT) = {:>6.2f}\
