@@ -18,7 +18,7 @@ global Rt
 Dr=0
 Dl=0
 Cf=1  # Cf is constant for  Rt,
-Ct=1  # Ct is for Lx turning,
+Ct=0.6  # Ct is for Lx turning,
 Cc=1   # center calibr
 Lxlim=0.12
 Rtlim=0.02
@@ -139,7 +139,7 @@ while done==False:
                         #
                         clock.wait(20)
                         if JX.get_button(3)==0:
-                            
+
                             print("backward !!BREAK!! Turn(Lx)= {:>6.2f} \
                                   Throttle(RT) = {:>6.2f}\
                                   =>  D Left={:>6.2f}, D Right={:>6.2f} "\
