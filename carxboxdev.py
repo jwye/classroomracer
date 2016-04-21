@@ -109,21 +109,7 @@ while done==False:
                         #
                         clock.wait(20)
                         if JX.get_button(2)==0:
-                            event=pygame.event.get()
-                            Lx = JX.get_axis(0)
-                            Rt = (JX.get_axis(5)+1)/2
-                            if -Lxlim <= Lx <= Lxlim and Rt >= Rtlim :
-                                Dr=Cf*Rt
-                                Dl=Cc*Dr
-                            elif Lx < -Lxlim and Rt >= Rtlim :#turn left
-                                Dr=(Cf*Rt)
-                                Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
-                            elif Lx > Lxlim and Rt >= Rtlim :#turn right
-                                Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
-                                Dl=(Cf*Rt)
-                            elif Rt < Rtlim:
-                                Dr=0
-                                Dl=0
+
                             print("forward !!BREAK!! Turn(Lx)= {:>6.2f} \
                                   Throttle(RT) = {:>6.2f}\
                                   =>  D Left={:>6.2f}, D Right={:>6.2f} "\
@@ -153,22 +139,8 @@ while done==False:
                         #
                         clock.wait(20)
                         if JX.get_button(3)==0:
-                            event=pygame.event.get()
-                            Lx = JX.get_axis(0)
-                            Rt = (JX.get_axis(5)+1)/2
-                            if -Lxlim <= Lx <= Lxlim and Rt >= Rtlim :
-                                Dr=Cf*Rt
-                                Dl=Cc*Dr
-                            elif Lx < -Lxlim and Rt >= Rtlim :#turn left
-                                Dr=(Cf*Rt)
-                                Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
-                            elif Lx > Lxlim and Rt >= Rtlim :#turn right
-                                Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
-                                Dl=(Cf*Rt)
-                            elif Rt < Rtlim:
-                                Dr=0
-                                Dl=0
-                            print("backward !!BREAL!! Turn(Lx)= {:>6.2f} \
+                            
+                            print("backward !!BREAK!! Turn(Lx)= {:>6.2f} \
                                   Throttle(RT) = {:>6.2f}\
                                   =>  D Left={:>6.2f}, D Right={:>6.2f} "\
                                   .format(Lx,Rt,Dl,Dr))
