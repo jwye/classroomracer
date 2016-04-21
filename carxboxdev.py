@@ -24,7 +24,9 @@ GO=0
 p=0
 
 def drivengo():
-    event=pygame.event.get()
+    Dr=(Cf*Rt)+(Cf*Rt*Ct*(Lx))
+    Dl=(Cf*Rt)-(Cf*Rt*Ct*(Lx))
+'''
     Lx = JX.get_axis(0)
     Rt = (JX.get_axis(5)+1)/2
     if -Lxlim <= Lx <= Lxlim and Rt >= Rtlim :
@@ -39,7 +41,7 @@ def drivengo():
     elif Rt < Rtlim :
         Dr=0
         Dl=0
-
+'''
 def padprintout():
     name = JX.get_name()   #名字
     #axes = JX.get_numaxes()  #
@@ -98,7 +100,7 @@ while done==False:
                         break
                     # go forward Lx is JX.get_axis(0)
                     while JX.get_button(2)==1: #xboxpad X
-                        #event=pygame.event.get()
+                        event=pygame.event.get()
                         drivengo()
                         print("go forward Turn(Lx)= {:>6.2f} \
                               Throttle(RT) = {:>6.2f}\
@@ -115,7 +117,7 @@ while done==False:
 
                     # go forward Lx is JX.get_axis(0)
                     while JX.get_button(3)==1:
-                        #event=pygame.event.get()
+                        event=pygame.event.get()
                         drivengo()
                         print("backward Turn(Lx)= {:>6.2f} \
                               Throttle(RT) = {:>6.2f}\
