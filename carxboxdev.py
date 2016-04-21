@@ -101,8 +101,11 @@ while done==False:
                         break
                     # go forward Lx is JX.get_axis(0)
                     while JX.get_button(2)==1: #xboxpad X
-                        #event=pygame.event.get()
-                        drivengo()
+                        event=pygame.event.get()
+                        Lx = JX.get_axis(0)
+                        Rt = (JX.get_axis(5)+1)/2
+                        Dr=(Cf*Rt)+(Cf*Rt*Ct*(Lx))
+                        Dl=(Cf*Rt)-(Cf*Rt*Ct*(Lx))
                         print("go forward Turn(Lx)= {:>6.2f} \
                               Throttle(RT) = {:>6.2f}\
                                =>  D Left={:>6.2f}, D Right={:>6.2f} "\
