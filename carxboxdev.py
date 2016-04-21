@@ -40,11 +40,6 @@ def dngo():
     elif Lx > Lxlim and Rt >= Rtlim :#turn right
         Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
         Dl=((Cf*Rt)
-'''
-    elif  Rt < Rtlim :
-        Dr=0
-        Dl=0
-'''
     else:
         pass
 
