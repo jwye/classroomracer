@@ -1,5 +1,4 @@
 import pygame
-import math
 
 pygame.init()
 
@@ -32,9 +31,9 @@ def drivengo():
         Dl=Cc*Dr
     elif Lx < -Lxlim and Rt >= Rtlim :#turn left
         Dr=(Cf*Rt)
-        Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
+        Dl=(Cf*Rt)-(Cf*Rt*Ct*(Lx))
     elif Lx > Lxlim and Rt >= Rtlim :#turn right
-        Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
+        Dr=(Cf*Rt)-(Cf*Rt*Ct*(Lx))
         Dl=((Cf*Rt)
     elif Rt < Rtlim :
         Dr=0
