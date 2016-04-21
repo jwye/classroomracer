@@ -43,6 +43,8 @@ def dngo():
     elif Rt < Rtlim :
         Dr=0
         Dl=0
+    else:
+        pass
 
 
 def padprintout():
@@ -121,6 +123,8 @@ while done==False:
                         elif Rt < Rtlim :
                             Dr=0
                             Dl=0
+                        else:
+                            pass
 
                         print("go forward Turn(Lx)= {:>6.2f} \
                               Throttle(RT) = {:>6.2f}\
