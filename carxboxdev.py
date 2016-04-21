@@ -21,12 +21,17 @@ Cf=1  # Cf is constant for  Rt,
 Ct=0.6  # Ct is for Lx turning,
 Cc=1   # center calibr
 Lxlim=0.12
-Rtlim=0.02
+Rtlim=0.01
 GO=0
 p=0
 
 
-
+def restart():
+    command = "/usr/bin/sudo /sbin/shutdown -r now"
+    import subprocess
+    process = subprocess.Popen(command.split(), stdout=subprocess.PIPE)
+    output = process.communicate()[0]
+    print output
 
 
 def padprintout():
@@ -58,6 +63,7 @@ for i in range(J_count):
     #getpadevent()
     padprintout()
 print("wait start command...")
+
 while done==False:
     event=pygame.event.wait()
     print("wait...{}".format(p))
@@ -68,7 +74,13 @@ while done==False:
         print("QUIT")
         pygame.quit()
         quit()
-        break
+
+    elif event.type==pygame.JOYBUTTONDOWN and JX.get_button(9)==1: # If user clicked close    #done=True # Flag that we are done so we exit this loo
+        print("REBOOT...")
+        pygame.quit()
+        clock.wait(3000)
+        restart()
+
 
     if GO==1:
         print("start!")
