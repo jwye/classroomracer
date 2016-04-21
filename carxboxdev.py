@@ -12,7 +12,7 @@ clock = pygame.time
 pygame.joystick.init()
 
 #def getpadevent():
-global JX
+global JX,Lx,Rt,Dr,Dl
 Cf=1  # Cf is constant for  Rt,
 Ct=1  # Ct is for Lx turning,
 Cc=1   # center calibr
@@ -36,7 +36,22 @@ def padprintout():
     || BACK:{},START:{},XBOX:{}  ||  hat: {}"\
     .format(i,name,a(0),-a(1),(a(2)+1)/2,a(3),-a(4),(a(5)+1)/2,\
     b(0),b(1),b(2),b(3),b(4),b(5),b(9),b(10),b(6),b(7),b(8), str(hat)))
-
+def drivengo():
+    Lx = JX.get_axis(0)
+    Rt = (JX.get_axis(5)+1)/2
+    if Rt>=Rtlim:
+        if -Lxlim<=Lx<=Lxlim:
+            Dr=Cf*Rt
+            Dl=Cc*Dr
+        elif Lx<-Lxlim :#turn left
+            Dr=(Cf*Rt)
+            Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
+        elif Lx>Lxlim :#turn right
+            Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
+            Dl=((Cf*Rt)
+    else:
+        Dr=0
+        Dl-0
 
 # -------- Main Program Loop -----------
 
@@ -78,22 +93,7 @@ while done==False:
                     # go forward Lx is JX.get_axis(0)
                     while JX.get_button(2)==1: #xboxpad X
                         event=pygame.event.get()
-                        Lx=JX.get_axis(0)
-                        Rt=(JX.get_axis(5)+1)/2
-                        if Rt <= Rtlim:
-                            Dr=0
-                            Dl=0
-                        else :
-                            if -Lxlim<=Lx<=Lxlim:
-                                Dr=Cf*Rt
-                                Dl=Cc*Dr
-                            elif Lx<-Lxlim :#turn left
-                                Dr=(Cf*Rt)
-                                Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
-                            elif Lx>Lxlim :#turn right
-                                Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
-                                Dl=((Cf*Rt)
-                            else:
+                        drivengo()
                         print("go forward Turn(Lx)= {:>6.2f} \
                               Throttle(RT) = {:>6.2f}\
                                =>  D Left={:>6.2f}, D Right={:>6.2f} "\
@@ -101,22 +101,7 @@ while done==False:
                         #
                         clock.wait(20)
                         if JX.get_button(2)==0:
-                            Lx=JX.get_axis(0)
-                            Rt=(JX.get_axis(5)+1)/2
-                            if Rt >= Rtlim:
-                                if -Lxlim<=Lx<=Lxlim:
-                                    Dr=Cf*Rt
-                                    Dl=Cc*Dr
-                                elif Lx<-Lxlim :#turn left
-                                    Dr=(Cf*Rt)
-                                    Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
-                                elif Lx>Lxlim :#turn right
-                                    Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
-                                    Dl=((Cf*Rt)
-                            else :
-                                Dr=0
-                                Dl=0
-
+                            drivengo()
                             print("forward !!BREAK!! Turn(Lx)= {:>6.2f} \
                                   Throttle(RT) = {:>6.2f}\
                                   =>  D Left={:>6.2f}, D Right={:>6.2f} "\
@@ -125,22 +110,7 @@ while done==False:
                     # go forward Lx is JX.get_axis(0)
                     while JX.get_button(3)==1:
                         event=pygame.event.get()
-                        Lx=JX.get_axis(0)
-                        Rt=(JX.get_axis(5)+1)/2
-                        if Rt >= Rtlim:
-                            if -Lxlim<=Lx<=Lxlim:
-                                Dr=Cf*Rt
-                                Dl=Cc*Dr
-                            elif Lx<-Lxlim :#turn left
-                                Dr=(Cf*Rt)
-                                Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
-                            elif Lx>Lxlim: #turn right
-                                Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
-                                Dl=((Cf*Rt)
-                        else :
-                            Dr=0
-                            Dl=0
-
+                        drivengo()
                         print("backward Turn(Lx)= {:>6.2f} \
                               Throttle(RT) = {:>6.2f}\
                               =>  D Left={:>6.2f}, D Right={:>6.2f} "\
@@ -148,21 +118,7 @@ while done==False:
                         #
                         clock.wait(20)
                         if JX.get_button(3)==0:
-                            Lx=JX.get_axis(0)
-                            Rt=(JX.get_axis(5)+1)/2
-                            if Rt >= Rtlim:
-                                if -Lxlim<=Lx<=Lxlim:
-                                    Dr=Cf*Rt
-                                    Dl=Cc*Dr
-                                elif Lx<-Lxlim :#turn left
-                                    Dr=(Cf*Rt)
-                                    Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
-                                elif Lx>Lxlim :#turn right
-                                    Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
-                                    Dl=((Cf*Rt)
-                            else :
-                                Dr=0
-                                Dl=0
+                            drivengo()
                             print("backward !!BREAL!! Turn(Lx)= {:>6.2f} \
                                   Throttle(RT) = {:>6.2f}\
                                   =>  D Left={:>6.2f}, D Right={:>6.2f} "\
