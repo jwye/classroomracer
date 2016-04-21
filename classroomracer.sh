@@ -1,8 +1,5 @@
-
-
-#sudo rmmod xpad
-#sudo xboxdrv --silent --detach-kernel-driver &
-
-python3 carxboxdev.py
-
-#killall xboxdrv
+cd /
+cd home/pi/
+sudo python3 ./Development/classroomracer/carxboxdev.py  &
+exit 0
+cd /
