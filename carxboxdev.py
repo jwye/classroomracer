@@ -28,6 +28,9 @@ p=0
 def dngo():
     Lx = JX.get_axis(0)
     Rt = (JX.get_axis(5)+1)/2
+    Dr = (Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
+    Dl = (Cf*Rt)+(Cf*Rt*Ct*abs(Lx))
+    '''
     if -Lxlim <= Lx <= Lxlim and Rt >= Rtlim :
         Dr=Cf*Rt
         Dl=Cc*Dr
@@ -40,6 +43,7 @@ def dngo():
     elif Rt < Rtlim :
         Dr=0
         Dl=0
+    '''
 
 def padprintout():
     name = JX.get_name()   #名字
