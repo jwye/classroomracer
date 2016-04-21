@@ -44,9 +44,9 @@ def padprintout():
     hat = JX.get_hat(i)
 
     print("Joystick {} : {} = LP[{:>6.2f},{:>6.2f}],  LT[{:>6.2f}]\
-    || RP[{:>6.2f},{:>6.2f}],  RT[{:>6.2f}]\
-    || A:{},B:{},X:{},Y:{} = LB:{},RB:{} LP:{},RP:{}\
-    || BACK:{},START:{},XBOX:{}  ||  hat: {}"\
+|| RP[{:>6.2f},{:>6.2f}],  RT[{:>6.2f}]\
+|| A:{},B:{},X:{},Y:{} = LB:{},RB:{} LP:{},RP:{}\
+|| BACK:{},START:{},XBOX:{}  ||  hat: {}"\
     .format(i,name,a(0),-a(1),(a(2)+1)/2,a(3),-a(4),(a(5)+1)/2,\
     b(0),b(1),b(2),b(3),b(4),b(5),b(9),b(10),b(6),b(7),b(8), str(hat)))
 
@@ -71,15 +71,15 @@ while done==False:
     if event.type==pygame.JOYBUTTONDOWN and JX.get_button(7)==1:
         GO=1
     elif event.type==pygame.JOYBUTTONDOWN and JX.get_button(8)==1: # If user clicked close    #done=True # Flag that we are done so we exit this loo
-        print("QUIT")
-        pygame.quit()
-        quit()
-
-    elif event.type==pygame.JOYBUTTONDOWN and JX.get_button(6)==1: # If user clicked close    #done=True # Flag that we are done so we exit this loo
         print("REBOOT...")
         pygame.quit()
         clock.wait(3000)
         restart()
+
+    elif event.type==pygame.JOYBUTTONDOWN and JX.get_button(6)==1: # If user clicked close    #done=True # Flag that we are done so we exit this loo
+        print("QUIT")
+        pygame.quit()
+        quit()
 
 
     if GO==1:
@@ -87,16 +87,11 @@ while done==False:
         while GO==1:
             for event in pygame.event.get():
                 if event.type == pygame.JOYBUTTONDOWN:
-                    if JX.get_button(7)==1: # If user clicked close    #done=True # Flag that we are done so we exit this loo
+                    if JX.get_button(7)==1 or JX.get_button(8)==1 or JX.get_button(6)==1:
                         GO=0
                         print("wait start command...")
                         break
-                    elif JX.get_button(8)==1:
-                        GO=0
-                        print("QUIT")
-                        pygame.quit()
-                        quit()
-                        break
+
                     # go forward Lx is JX.get_axis(0)
                     while JX.get_button(2)==1: #xboxpad X
                         event=pygame.event.get()
