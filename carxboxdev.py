@@ -1,4 +1,5 @@
 import pygame
+import math
 
 pygame.init()
 
@@ -26,8 +27,6 @@ p=0
 def drivengo():
     Lx = JX.get_axis(0)
     Rt = (JX.get_axis(5)+1)/2
-    Dr=0
-    Dl=0
     if -Lxlim <= Lx <= Lxlim and Rt >= Rtlim :
         Dr=Cf*Rt
         Dl=Cc*Dr
@@ -37,7 +36,10 @@ def drivengo():
     elif Lx > Lxlim and Rt >= Rtlim :#turn right
         Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
         Dl=((Cf*Rt)
-            
+    elif Rt < Rtlim
+        Dr=0
+        Dl=0
+
 def padprintout():
     name = JX.get_name()   #名字
     #axes = JX.get_numaxes()  #
