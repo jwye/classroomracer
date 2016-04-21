@@ -124,7 +124,7 @@ while done==False:
                         elif Rt < Rtlim :
                             Dr=0
                             Dl=0
-                            
+
                         print("go forward Turn(Lx)= {:>6.2f} \
                               Throttle(RT) = {:>6.2f}\
                                =>  D Left={:>6.2f}, D Right={:>6.2f} "\
