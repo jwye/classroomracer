@@ -13,8 +13,8 @@ pygame.joystick.init()
 
 #def getpadevent():
 global JX
-global Lx
-global Rt
+Lx=0
+Rt=0
 Dr=0
 Dl=0
 Cf=1  # Cf is constant for  Rt,
