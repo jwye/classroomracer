@@ -24,7 +24,6 @@ GO=0
 p=0
 
 def drivengo():
-    event=pygame.event.get()
     Lx = JX.get_axis(0)
     Rt = (JX.get_axis(5)+1)/2
     Dr=(Cf*Rt)+(Cf*Rt*Ct*(Lx))
@@ -121,7 +120,7 @@ while done==False:
 
                     # go forward Lx is JX.get_axis(0)
                     while JX.get_button(3)==1:
-                        #event=pygame.event.get()
+                        event=pygame.event.get()
                         drivengo()
                         print("backward Turn(Lx)= {:>6.2f} \
                               Throttle(RT) = {:>6.2f}\
