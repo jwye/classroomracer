@@ -93,7 +93,7 @@ while done==False:
                             elif Lx>Lxlim :#turn right
                                 Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
                                 Dl=((Cf*Rt)
-
+                            else:
                         print("go forward Turn(Lx)= {:>6.2f} \
                               Throttle(RT) = {:>6.2f}\
                                =>  D Left={:>6.2f}, D Right={:>6.2f} "\
