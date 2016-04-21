@@ -43,10 +43,7 @@ def padprintout():
     #hats = JX.get_numhats()
     hat = JX.get_hat(i)
 
-    print("Joystick {} : {} = LP[{:>6.2f},{:>6.2f}],  LT[{:>6.2f}]\
-|| RP[{:>6.2f},{:>6.2f}],  RT[{:>6.2f}]\
-|| A:{},B:{},X:{},Y:{} = LB:{},RB:{} LP:{},RP:{}\
-|| BACK:{},START:{},XBOX:{}  ||  hat: {}"\
+    print("Joystick {} : {} = LP[{:>6.2f},{:>6.2f}],  LT[{:>6.2f}] || RP[{:>6.2f},{:>6.2f}],  RT[{:>6.2f}] || A:{},B:{},X:{},Y:{} = LB:{},RB:{} LP:{},RP:{} || BACK:{},START:{},XBOX:{}  ||  hat: {}"\
     .format(i,name,a(0),-a(1),(a(2)+1)/2,a(3),-a(4),(a(5)+1)/2,\
     b(0),b(1),b(2),b(3),b(4),b(5),b(9),b(10),b(6),b(7),b(8), str(hat)))
 
@@ -109,17 +106,13 @@ while done==False:
                         elif Rt < Rtlim:
                             Dr=0
                             Dl=0
-                        print("go forward Turn(Lx)= {:>6.2f} \
-                              Throttle(RT) = {:>6.2f}\
-                               =>  D Left={:>6.2f}, D Right={:>6.2f} "\
+                        print("go forward Turn(Lx)= {:>6.2f} -- Throttle(RT) = {:>6.2f}  ===>  D Left={:>6.2f}, D Right={:>6.2f} "\
                               .format(Lx,Rt,Dl,Dr))
                         #
                         clock.wait(20)
                         if JX.get_button(2)==0:
 
-                            print("forward !!BREAK!! Turn(Lx)= {:>6.2f} \
-                                  Throttle(RT) = {:>6.2f}\
-                                  =>  D Left={:>6.2f}, D Right={:>6.2f} "\
+                            print("forward !!BREAK!! Turn(Lx)= {:>6.2f} -- Throttle(RT) = {:>6.2f}  ===>  D Left={:>6.2f}, D Right={:>6.2f} "\
                                   .format(Lx,Rt,Dl,Dr))
 
                     # go forward Lx is JX.get_axis(0)
@@ -139,15 +132,11 @@ while done==False:
                         elif Rt < Rtlim:
                             Dr=0
                             Dl=0
-                        print("backward Turn(Lx)= {:>6.2f} \
-                              Throttle(RT) = {:>6.2f}\
-                              =>  D Left={:>6.2f}, D Right={:>6.2f} "\
+                        print("backward Turn(Lx)= {:>6.2f} -- Throttle(RT) = {:>6.2f}  ===>  D Left={:>6.2f}, D Right={:>6.2f} "\
                               .format(Lx,Rt,Dl,Dr))
                         #
                         clock.wait(20)
                         if JX.get_button(3)==0:
 
-                            print("backward !!BREAK!! Turn(Lx)= {:>6.2f} \
-                                  Throttle(RT) = {:>6.2f}\
-                                  =>  D Left={:>6.2f}, D Right={:>6.2f} "\
+                            print("backward !!BREAK!! Turn(Lx)= {:>6.2f} -- Throttle(RT) = {:>6.2f} ===>  D Left={:>6.2f}, D Right={:>6.2f} "\
                                   .format(Lx,Rt,Dl,Dr))
