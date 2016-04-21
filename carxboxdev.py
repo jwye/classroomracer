@@ -90,6 +90,7 @@ while done==False:
                             elif Lx>Lxlim :#turn right
                                 Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
                                 Dl=((Cf*Rt)
+                            else:
                         else :
                             Dr=0
                             Dl=0
@@ -113,6 +114,7 @@ while done==False:
                                 elif Lx>Lxlim :#turn right
                                     Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
                                     Dl=((Cf*Rt)
+                                else:
                             else :
                                 Dr=0
                                 Dl=0
@@ -137,6 +139,7 @@ while done==False:
                             elif Lx>Lxlim: #turn right
                                 Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
                                 Dl=((Cf*Rt)
+                            else:
                         else :
                             Dr=0
                             Dl=0
@@ -160,6 +163,7 @@ while done==False:
                                 elif Lx>Lxlim :#turn right
                                     Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
                                     Dl=((Cf*Rt)
+                                else:
                             else :
                                 Dr=0
                                 Dl=0
