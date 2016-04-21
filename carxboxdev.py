@@ -24,11 +24,11 @@ GO=0
 p=0
 
 def drivengo():
+    Lx = JX.get_axis(0)
+    Rt = (JX.get_axis(5)+1)/2
     Dr=(Cf*Rt)+(Cf*Rt*Ct*(Lx))
     Dl=(Cf*Rt)-(Cf*Rt*Ct*(Lx))
 '''
-    Lx = JX.get_axis(0)
-    Rt = (JX.get_axis(5)+1)/2
     if -Lxlim <= Lx <= Lxlim and Rt >= Rtlim :
         Dr=Cf*Rt
         Dl=Cc*Dr
