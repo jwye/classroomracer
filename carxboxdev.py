@@ -49,7 +49,7 @@ def drivengo():
         elif Lx>Lxlim :#turn right
             Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
             Dl=((Cf*Rt)
-     elif Rt<Rtlim:
+    else:
         Dr=0
         Dl=0
 
