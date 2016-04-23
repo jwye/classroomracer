@@ -6,5 +6,5 @@ ser.open()
 while 1:
     response = ser.readline()
     print(response)
-    except KeyboardInterrupt:
+    except(KeyboardInterrupt):
 ser.close()
