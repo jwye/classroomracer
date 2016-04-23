@@ -15,8 +15,8 @@ pygame.joystick.init()
 global JX
 global Lx
 global Rt
-Dr=0
-Dl=0
+Dr=00
+Dl=00
 Cf=1  # Cf is constant for  Rt,
 Ct=0.6  # Ct is for Lx turning,
 Cc=1   # center calibr
@@ -67,6 +67,10 @@ while done==False:
     p+=1
     if event.type==pygame.JOYBUTTONDOWN and JX.get_button(7)==1:
         GO=1
+        Lx=0
+        Rt=0
+        Dr=0
+        Dl=0
     elif event.type==pygame.JOYBUTTONDOWN and JX.get_button(8)==1: # If user clicked close    #done=True # Flag that we are done so we exit this loo
         print("REBOOT...")
         pygame.quit()
