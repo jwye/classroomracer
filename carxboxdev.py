@@ -56,9 +56,9 @@ J_count = pygame.joystick.get_count()
 for i in range(J_count):
 
     JX = pygame.joystick.Joystick(i)
+    JX.init()
     Lx=0
     Rt=0
-    JX.init()
     #getpadevent()
     padprintout()
 print("wait start command...")
