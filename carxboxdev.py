@@ -56,6 +56,8 @@ J_count = pygame.joystick.get_count()
 for i in range(J_count):
 
     JX = pygame.joystick.Joystick(i)
+    Lx=0
+    Rt=0
     JX.init()
     #getpadevent()
     padprintout()
@@ -71,7 +73,6 @@ while done==False:
         Rt=0
         Dr=0
         Dl=0
-        JX.init()
 
     elif event.type==pygame.JOYBUTTONDOWN and JX.get_button(8)==1: # If user clicked close    #done=True # Flag that we are done so we exit this loo
         print("REBOOT...")
@@ -88,6 +89,7 @@ while done==False:
     if GO==1:
         print("start!")
         while GO==1:
+
             for event in pygame.event.get():
                 if event.type == pygame.JOYBUTTONDOWN:
                     if JX.get_button(7)==1 or JX.get_button(8)==1 or JX.get_button(6)==1:
