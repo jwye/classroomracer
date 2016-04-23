@@ -89,7 +89,6 @@ while done==False:
     if GO==1:
         print("start!")
         while GO==1:
-
             for event in pygame.event.get():
                 if event.type == pygame.JOYBUTTONDOWN:
                     if JX.get_button(7)==1 or JX.get_button(8)==1 or JX.get_button(6)==1:
