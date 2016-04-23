@@ -7,4 +7,4 @@ try:
         response = ser.readline()
         print(response)
 except(KeyboardInterrupt):
-ser.close()
+    ser.close()
