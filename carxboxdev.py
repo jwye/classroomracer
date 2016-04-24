@@ -27,7 +27,7 @@ p=0
 
 
 def restart():
-    command = "/usr/bin/sudo /sbin/shutdown -r now"
+    command = "/usr/bin/sudo /sbin/shutdown now"
     import subprocess
     process = subprocess.Popen(command.split(), stdout=subprocess.PIPE)
     output = process.communicate()[0]
