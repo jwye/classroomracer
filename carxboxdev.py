@@ -27,6 +27,12 @@ p=0
 
 
 def restart():
+    command = "/usr/bin/sudo /sbin/shutdown -r now"
+    import subprocess
+    process = subprocess.Popen(command.split(), stdout=subprocess.PIPE)
+    output = process.communicate()[0]
+    print(output)
+def shutdown():
     command = "/usr/bin/sudo /sbin/shutdown now"  #reboot "/usr/bin/sudo /sbin/shutdown -r now"
     import subprocess
     process = subprocess.Popen(command.split(), stdout=subprocess.PIPE)
@@ -74,13 +80,19 @@ while done==False:
         Dr=0
         Dl=0
 
-    elif event.type==pygame.JOYBUTTONDOWN and JX.get_button(8)==1: # If user clicked close    #done=True # Flag that we are done so we exit this loo
-        print("now is SHUTDOWN") #time  REBOOT...")
+    elif event.type==pygame.JOYBUTTONDOWN and JX.get_button(8)==1:
+        print("REBOOT...")
         pygame.quit()
         clock.wait(3000)
         restart()
 
-    elif event.type==pygame.JOYBUTTONDOWN and JX.get_button(6)==1: # If user clicked close    #done=True # Flag that we are done so we exit this loo
+    elif event.type==pygame.JOYBUTTONDOWN and JX.get_button(6)==1:
+        print("!!SHUTDOWN!!")
+        pygame.quit()
+        clock.wait(3000)
+        shutdown()
+    elif event.type==pygame.JOYBUTTONDOWN and\
+     JX.get_button(4)==1 and JX.get_button(5)==1 and JX.get_button(10)==1 : 
         print("QUIT")
         pygame.quit()
         quit()
