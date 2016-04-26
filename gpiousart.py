@@ -6,7 +6,7 @@ import RPi.GPIO as GPIO
 
 Baudrate = 26640
 #ONE Bit is 38us
-Bittime=10/10000000
+Bittime=1/10000000
 BitsinByte = 9
 #MDBmode:address indicated MSB=1
 MDB=1
@@ -19,7 +19,7 @@ time.sleep(5)
 try:
     print('GO')
     while 1:
-            time.sleep(30*Bittime)
+            time.sleep(1000*Bittime)
 
             # 0xAA 0xAA  0b 1 10101010
             GPIO.output(11, GPIO.LOW)
@@ -56,7 +56,7 @@ try:
 
             #pandding
             GPIO.output(11, GPIO.HIGH)
-            time.sleep(6*Bittime)
+            time.sleep(20*Bittime)
             #
 
 
