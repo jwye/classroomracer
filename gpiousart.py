@@ -30,10 +30,12 @@ def SENDBYTE(byte,bt):
 
 Baudrate = 26640
 #ONE Bit is 38us
-K=0.03
+K=0.015
 Bittime=K*1/Baudrate
 #MDBmode:address indicated MSB=1
 MDB=1
+
+GPIO.cleanup()
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(11, GPIO.OUT)
