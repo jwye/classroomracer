@@ -4,6 +4,7 @@
 import time
 import RPi.GPIO as GPIO
 
+GPIO.cleanup()
 
 def HIGHBIT(port,bt):
     GPIO.output(port, GPIO.HIGH)
