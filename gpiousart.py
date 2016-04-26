@@ -4,10 +4,31 @@
 import time
 import RPi.GPIO as GPIO
 
+
+def HIGHBIT(port,time):
+    GPIO.output(port, GPIO.HIGH)
+    time.sleep(time) # start
+
+def LOWBIT(port,time):
+    GPIO.output(port, GPIO.LOW)
+    time.sleep(time) # start
+
+def HighPandding(port,time,n):
+    GPIO.output(port, GPIO.HIGH)
+    time.sleep(n*time) # start
+
+def SENDBYTE(byte,time):
+    for b in byte:
+        if b == '0':
+            LOWBIT(11,time)
+        elif b == '1':
+            HIGHBIT(11,time)
+
+
 Baudrate = 26640
 #ONE Bit is 38us
-Bittime=1/10000000
-BitsinByte = 9
+K=0.5
+Bittime=K*1/Baudrate
 #MDBmode:address indicated MSB=1
 MDB=1
 
@@ -19,61 +40,15 @@ time.sleep(5)
 try:
     print('GO')
     while 1:
-            time.sleep(1000*Bittime)
+            HighPandding(11,Bittime,810)
 
-            # 0xAA 0xAA  0b 1 10101010
-            GPIO.output(11, GPIO.LOW)
-            time.sleep(Bittime) # start
-            # 1010
-            GPIO.output(11, GPIO.LOW)
-            time.sleep(Bittime) # lsb
+            BYTE='010101010'
+            SENDBYTE(BYTE,Bittime)
+            HighPandding(11,Bittime,50)
 
-            GPIO.output(11, GPIO.HIGH)
-            time.sleep(Bittime) # 2
-
-            GPIO.output(11, GPIO.LOW)
-            time.sleep(Bittime) # 3
-
-            GPIO.output(11, GPIO.HIGH)
-            time.sleep(Bittime) # 4
-            # 1010
-            GPIO.output(11, GPIO.LOW)
-            time.sleep(Bittime) # lsb
-
-            GPIO.output(11, GPIO.HIGH)
-            time.sleep(Bittime)
-
-            GPIO.output(11, GPIO.LOW)
-            time.sleep(Bittime) # lsb
-
-            GPIO.output(11, GPIO.HIGH)
-            time.sleep(Bittime)
-
-            # MSB=0
-            GPIO.output(11, GPIO.LOW)
-            time.sleep(Bittime)
-            # finish 0xAA  0b 1 10101010
-
-            #pandding
-            GPIO.output(11, GPIO.HIGH)
-            time.sleep(20*Bittime)
-            #
-
-
-            # 0b00000000
-            GPIO.output(11, GPIO.LOW)
-            time.sleep(8*Bittime)
-            # MSB=1
-            GPIO.output(11, GPIO.HIGH)
-            time.sleep(Bittime)
-            # first 9 bits
-
-
-
-
-
-
-
+            BYTE='100000000'
+            SENDBYTE(BYTE,Bittime)
+            HighPandding(11,Bittime,50)
 
 except(KeyboardInterrupt):
     GPIO.cleanup()
