@@ -15,7 +15,8 @@ def LOWBIT(port,time):
 
 def HighPandding(port,time,n):
     GPIO.output(port, GPIO.HIGH)
-    time.sleep(n*time) # start
+    st=n*time
+    time.sleep(st) # start
 
 def SENDBYTE(byte,time):
     for b in byte:
