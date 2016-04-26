@@ -25,7 +25,7 @@ def SENDBYTE(byte,bt):
             LOWBIT(11,bt)
         elif b == '1':
             HIGHBIT(11,bt)
-    HIGHBIT(11,bt)
+    HighPandding(11,Bittime,5)
 
 
 Baudrate = 26640
@@ -47,11 +47,11 @@ try:
 
             BYTE='010101010'
             SENDBYTE(BYTE,Bittime)
-            HighPandding(11,Bittime,50)
+
 
             BYTE='100000000'
             SENDBYTE(BYTE,Bittime)
-            HighPandding(11,Bittime,50)
+            HighPandding(11,Bittime,200)
 
 except(KeyboardInterrupt):
     GPIO.cleanup()
