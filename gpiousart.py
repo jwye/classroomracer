@@ -19,11 +19,13 @@ def HighPandding(port,bt,n):
     time.sleep(n*bt) # start
 
 def SENDBYTE(byte,bt):
+    LOWBIT(11,bt)
     for b in byte:
         if b == '0':
             LOWBIT(11,bt)
         elif b == '1':
             HIGHBIT(11,bt)
+    HIGHBIT(11,bt)
 
 
 Baudrate = 26640
