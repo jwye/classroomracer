@@ -5,25 +5,24 @@ import time
 import RPi.GPIO as GPIO
 
 
-def HIGHBIT(port,time):
+def HIGHBIT(port,bt):
     GPIO.output(port, GPIO.HIGH)
-    time.sleep(time) # start
+    time.sleep(bt) # start
 
-def LOWBIT(port,time):
+def LOWBIT(port,bt):
     GPIO.output(port, GPIO.LOW)
-    time.sleep(time) # start
+    time.sleep(bt) # start
 
-def HighPandding(port,time,n):
+def HighPandding(port,bt,n):
     GPIO.output(port, GPIO.HIGH)
-    st=n*time
-    time.sleep(st) # start
+    time.sleep(n*bt) # start
 
-def SENDBYTE(byte,time):
+def SENDBYTE(byte,bt):
     for b in byte:
         if b == '0':
-            LOWBIT(11,time)
+            LOWBIT(11,bt)
         elif b == '1':
-            HIGHBIT(11,time)
+            HIGHBIT(11,bt)
 
 
 Baudrate = 26640
