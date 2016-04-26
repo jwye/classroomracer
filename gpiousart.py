@@ -73,7 +73,7 @@ Baudrate = 26640
 #ONE Bit is 38us
 K=0.03
 Bittime=K/Baudrate
-Bittime=0.1/1000000
+Bittime=0.5/1000000
 #MDBmode:address indicated MSB=1
 MDB=1
 
