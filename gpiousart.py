@@ -71,8 +71,9 @@ def OXAA():
 
 Baudrate = 26640
 #ONE Bit is 38us
-K=0.02
+K=0.03
 Bittime=K/Baudrate
+Bittime=20/1000000
 #MDBmode:address indicated MSB=1
 MDB=1
 
