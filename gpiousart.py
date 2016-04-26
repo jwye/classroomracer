@@ -86,7 +86,7 @@ time.sleep(1)
 try:
     print('GO')
     while 1:
-        OXAA()
+        OX55()
 
 except(KeyboardInterrupt):
     GPIO.cleanup()
