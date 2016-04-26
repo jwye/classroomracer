@@ -12,7 +12,7 @@ import binascii
 
 ser = serial.Serial()
 #ser.port= '/dev/tty.usbserial'
-ser.port= '/dev/cu.usbserial'
+ser.port= '/dev/ttyUSB0'
 ser.baudrate = 26640
 ser.timeout= 1
 ser.parity=serial.PARITY_NONE
