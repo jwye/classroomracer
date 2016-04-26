@@ -25,12 +25,12 @@ def SENDBYTE(byte,bt):
             LOWBIT(11,bt)
         elif b == '1':
             HIGHBIT(11,bt)
-    HighPandding(11,Bittime,5)
+    HighPandding(11,bt,1)
 
 
 Baudrate = 26640
 #ONE Bit is 38us
-K=0.1
+K=0.05
 Bittime=K*1/Baudrate
 #MDBmode:address indicated MSB=1
 MDB=1
@@ -43,7 +43,7 @@ time.sleep(5)
 try:
     print('GO')
     while 1:
-            HighPandding(11,Bittime,810)
+            HighPandding(11,Bittime,81)
 
             BYTE='010101010'
             SENDBYTE(BYTE,Bittime)
@@ -51,7 +51,7 @@ try:
 
             BYTE='100000000'
             SENDBYTE(BYTE,Bittime)
-            HighPandding(11,Bittime,200)
+            HighPandding(11,Bittime,18)
 
 except(KeyboardInterrupt):
     GPIO.cleanup()
