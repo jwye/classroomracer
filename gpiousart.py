@@ -30,7 +30,7 @@ def SENDBYTE(byte,bt):
 
 Baudrate = 26640
 #ONE Bit is 38us
-K=0.07
+K=0.04
 Bittime=K/Baudrate
 #MDBmode:address indicated MSB=1
 MDB=1
@@ -65,10 +65,30 @@ try:
             BYTE='010101010'  #0xAA
             SENDBYTE(BYTE,Bittime)
 
-            HighPandding(11,Bittime,21)
-
-
+            HighPandding(11,Bittime,27)
 
 
 except(KeyboardInterrupt):
-    GPIO.cleanup()
+    while 1:
+            BYTE='100000000'  #0x00
+            SENDBYTE(BYTE,Bittime)
+
+            BYTE='000001000'  #0x10
+            SENDBYTE(BYTE,Bittime)
+
+            BYTE='000001100'  #0x0c
+            SENDBYTE(BYTE,Bittime)
+
+            BYTE='000001000'  #0x10
+            SENDBYTE(BYTE,Bittime)
+
+            BYTE='000001100'  #0x0c
+            SENDBYTE(BYTE,Bittime)
+
+            BYTE='001010101'  #0x55
+            SENDBYTE(BYTE,Bittime)
+
+            HighPandding(11,Bittime,27)
+
+
+GPIO.cleanup()
