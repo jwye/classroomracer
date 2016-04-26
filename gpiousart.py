@@ -30,7 +30,7 @@ def SENDBYTE(byte,bt):
 
 Baudrate = 26640
 #ONE Bit is 38us
-K=0.02
+K=0.07
 Bittime=K/Baudrate
 #MDBmode:address indicated MSB=1
 MDB=1
