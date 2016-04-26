@@ -46,6 +46,8 @@ try:
     print('GO')
     while 1:
 
+            BYTE='010101010'  #0xAA
+            SENDBYTE(BYTE,Bittime)
 
             BYTE='100000000'  #0x00
             SENDBYTE(BYTE,Bittime)
@@ -62,14 +64,16 @@ try:
             BYTE='000001100'  #0x0c
             SENDBYTE(BYTE,Bittime)
 
-            BYTE='010101010'  #0xAA
-            SENDBYTE(BYTE,Bittime)
 
             HighPandding(11,Bittime,27)
 
 
 except(KeyboardInterrupt):
     while 1:
+
+            BYTE='001010101'  #0x55
+            SENDBYTE(BYTE,Bittime)
+            
             BYTE='100000000'  #0x00
             SENDBYTE(BYTE,Bittime)
 
@@ -85,8 +89,7 @@ except(KeyboardInterrupt):
             BYTE='000001100'  #0x0c
             SENDBYTE(BYTE,Bittime)
 
-            BYTE='001010101'  #0x55
-            SENDBYTE(BYTE,Bittime)
+
 
             HighPandding(11,Bittime,27)
 
