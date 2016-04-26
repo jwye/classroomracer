@@ -19,19 +19,19 @@ def HighPandding(port,bt,n):
     time.sleep(n*bt) # start
 
 def SENDBYTE(byte,bt):
-    LOWBIT(11,bt)
+    LOWBIT(11,bt) #start
     for b in byte:
         if b == '0':
             LOWBIT(11,bt)
         elif b == '1':
             HIGHBIT(11,bt)
-    HighPandding(11,bt,1)
+    HIGHBIT(11,bt) #finish
 
 
 Baudrate = 26640
 #ONE Bit is 38us
-K=0.015
-Bittime=K*1/Baudrate
+K=0.02
+Bittime=K/Baudrate
 #MDBmode:address indicated MSB=1
 MDB=1
 
@@ -45,15 +45,30 @@ time.sleep(1)
 try:
     print('GO')
     while 1:
-            HighPandding(11,Bittime,81)
 
-            BYTE='010101010'
+
+            BYTE='100000000'  #0x00
             SENDBYTE(BYTE,Bittime)
 
-
-            BYTE='100000000'
+            BYTE='000001000'  #0x10
             SENDBYTE(BYTE,Bittime)
-            HighPandding(11,Bittime,18)
+
+            BYTE='000001100'  #0x0c
+            SENDBYTE(BYTE,Bittime)
+
+            BYTE='000001000'  #0x10
+            SENDBYTE(BYTE,Bittime)
+
+            BYTE='000001100'  #0x0c
+            SENDBYTE(BYTE,Bittime)
+
+            BYTE='010101010'  #0xAA
+            SENDBYTE(BYTE,Bittime)
+
+            HighPandding(11,Bittime,21)
+
+
+
 
 except(KeyboardInterrupt):
     GPIO.cleanup()
