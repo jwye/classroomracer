@@ -27,6 +27,48 @@ def SENDBYTE(byte,bt):
             HIGHBIT(11,bt)
     HIGHBIT(11,bt) #finish
 
+def OX55():
+    BYTE='001010101'  #0x55
+    SENDBYTE(BYTE,Bittime)
+
+    BYTE='100000000'  #0x00
+    SENDBYTE(BYTE,Bittime)
+
+    BYTE='000001000'  #0x10
+    SENDBYTE(BYTE,Bittime)
+
+    BYTE='000001100'  #0x0c
+    SENDBYTE(BYTE,Bittime)
+
+    BYTE='000001000'  #0x10
+    SENDBYTE(BYTE,Bittime)
+
+    BYTE='000001100'  #0x0c
+    SENDBYTE(BYTE,Bittime)
+    HighPandding(11,Bittime,27)
+
+def OXAA():
+    BYTE='010101010'  #0xAA
+    SENDBYTE(BYTE,Bittime)
+
+    BYTE='100000000'  #0x00
+    SENDBYTE(BYTE,Bittime)
+
+    BYTE='000001000'  #0x10
+    SENDBYTE(BYTE,Bittime)
+
+    BYTE='000001100'  #0x0c
+    SENDBYTE(BYTE,Bittime)
+
+    BYTE='000001000'  #0x10
+    SENDBYTE(BYTE,Bittime)
+
+    BYTE='000001100'  #0x0c
+    SENDBYTE(BYTE,Bittime)
+
+
+    HighPandding(11,Bittime,27)
+
 
 Baudrate = 26640
 #ONE Bit is 38us
@@ -45,53 +87,9 @@ time.sleep(1)
 try:
     print('GO')
     while 1:
+        OXAA()
 
-            BYTE='010101010'  #0xAA
-            SENDBYTE(BYTE,Bittime)
-
-            BYTE='100000000'  #0x00
-            SENDBYTE(BYTE,Bittime)
-
-            BYTE='000001000'  #0x10
-            SENDBYTE(BYTE,Bittime)
-
-            BYTE='000001100'  #0x0c
-            SENDBYTE(BYTE,Bittime)
-
-            BYTE='000001000'  #0x10
-            SENDBYTE(BYTE,Bittime)
-
-            BYTE='000001100'  #0x0c
-            SENDBYTE(BYTE,Bittime)
-
-
-            HighPandding(11,Bittime,27)
 
 
 except(KeyboardInterrupt):
-    while 1:
-
-            BYTE='001010101'  #0x55
-            SENDBYTE(BYTE,Bittime)
-            
-            BYTE='100000000'  #0x00
-            SENDBYTE(BYTE,Bittime)
-
-            BYTE='000001000'  #0x10
-            SENDBYTE(BYTE,Bittime)
-
-            BYTE='000001100'  #0x0c
-            SENDBYTE(BYTE,Bittime)
-
-            BYTE='000001000'  #0x10
-            SENDBYTE(BYTE,Bittime)
-
-            BYTE='000001100'  #0x0c
-            SENDBYTE(BYTE,Bittime)
-
-
-
-            HighPandding(11,Bittime,27)
-
-
 GPIO.cleanup()
