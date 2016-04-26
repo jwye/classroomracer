@@ -18,12 +18,9 @@ try:
     while 1:
 
         GPIO.output(11, GPIO.HIGH)
-        time.sleep(Bittime)
+        #time.sleep(Bittime)
         GPIO.output(11, GPIO.LOW)
-        time.sleep(Bittime)
-        GPIO.output(11, GPIO.HIGH)
-        time.sleep(Bittime)
-        GPIO.output(11, GPIO.LOW)
-        time.sleep(Bittime)
+        #time.sleep(Bittime)
+        
 except(KeyboardInterrupt):
     GPIO.cleanup()
