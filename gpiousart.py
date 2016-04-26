@@ -30,7 +30,7 @@ def SENDBYTE(byte,bt):
 
 Baudrate = 26640
 #ONE Bit is 38us
-K=0.01
+K=0.03
 Bittime=K*1/Baudrate
 #MDBmode:address indicated MSB=1
 MDB=1
@@ -39,7 +39,7 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(11, GPIO.OUT)
 GPIO.output(11, GPIO.HIGH)
 print('GPIO 11 is set to HIGH')
-time.sleep(5)
+time.sleep(1)
 try:
     print('GO')
     while 1:
