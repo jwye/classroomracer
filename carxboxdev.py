@@ -73,14 +73,14 @@ while done==False:
     event=pygame.event.wait()
     print("wait...{}".format(p))
     p+=1
-    if event.type==pygame.JOYBUTTONDOWN and JX.get_button(7)==1:
+    if event.type==pygame.JOYBUTTONDOWN and JX.get_button(8)==1:
         GO=1
         Lx=0
         Rt=0
         Dr=0
         Dl=0
 
-    elif event.type==pygame.JOYBUTTONDOWN and JX.get_button(8)==1:
+    elif event.type==pygame.JOYBUTTONDOWN and JX.get_button(7)==1:
         print("REBOOT...")
         pygame.quit()
         clock.wait(3000)
@@ -92,7 +92,7 @@ while done==False:
         clock.wait(3000)
         shutdown()
     elif event.type==pygame.JOYBUTTONDOWN and\
-     JX.get_button(4)==1 and JX.get_button(5)==1 and JX.get_button(10)==1 : 
+     JX.get_button(4)==1 and JX.get_button(5)==1 and JX.get_button(10)==1 :
         print("QUIT")
         pygame.quit()
         quit()
@@ -103,7 +103,7 @@ while done==False:
         while GO==1:
             for event in pygame.event.get():
                 if event.type == pygame.JOYBUTTONDOWN:
-                    if JX.get_button(7)==1 or JX.get_button(8)==1 or JX.get_button(6)==1:
+                    if JX.get_button(6)==1 or JX.get_button(7)==1 or JX.get_button(8)==1:
                         GO=0
                         print("wait start command...")
                         break
