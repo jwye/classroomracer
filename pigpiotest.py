@@ -16,7 +16,7 @@ pi.bb_serial_read_close(RX)
 pigpio.exceptions = True
 pi.wave_clear()
 
-
+TEXT=0
 
 pi.wave_add_serial(TX, baud, TEXT,bb_bits=bits)
 wid=pi.wave_create()
