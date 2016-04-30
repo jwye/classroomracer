@@ -4,6 +4,16 @@ import sys
 import time
 import pigpio
 
+open_pigpio()
+
+def open_pigpio():
+    command = "/usr/bin/sudo pigpiod now"
+    import subprocess
+    process = subprocess.Popen(command.split(), stdout=subprocess.PIPE)
+    output = process.communicate()[0]
+    print(output)
+
+
 RX=19
 TX=26
 baud=26640
@@ -17,16 +27,18 @@ pigpio.exceptions = True
 pi.wave_clear()
 
 msg = [0]*6
-msg[0]=0b100000000
-msg[1]=0b001001001
-msg[2]=0b001001011
+msg[0]=b'100000000'#256#b100000000'
+msg[1]=b'001001001'#73#b'001001001'
+msg[2]=b'001001011'#75#b'001001011'
 msg[3]=msg[1]
 msg[4]=msg[2]
-msg[5]=0b110101010
+msg[5]=b'110101010'#426#b'110101010'
 
 TEXT=msg[:]
 TEXT=TEXT[:]
-pi.wave_add_serial(TX, baud, TEXT,bb_bits=bits)
+DATA=b'0x155'
+
+pi.wave_add_serial(TX, baud, DATA,bb_bits=bits)
 wid=pi.wave_create()
 wave_send_using_mode(wid,WAVE_MODE_REPEAT_SYNC)
 print("baud={} bits={} data={}".format(baud, bits, TEXT))
