@@ -55,7 +55,7 @@ def padprintout():
     b(0),b(1),b(2),b(3),b(4),b(5),b(9),b(10),b(6),b(7),b(8), str(hat)))
 
 def CMD0ini():
-    ini0=0
+    ini0=1
     GPIO.output(BrkR, ini0)
     GPIO.output(BrkL, ini0)
     GPIO.output(TrnR, ini0)
