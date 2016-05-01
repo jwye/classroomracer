@@ -86,12 +86,11 @@ PWMdcConstant=100
 GPIO.cleanup()
 GPIO.setmode(GPIO.BOARD)
 # Break right wheel & left wheel, on/off out
-GPIO.setup(BrkR, GPIO.OUT) #BR
-GPIO.setup(BrkL, GPIO.OUT) #BL
 # Revers right & left wheel, on/off out
-GPIO.setup(TrnR, GPIO.OUT) #TR
-GPIO.setup(TrnL, GPIO.OUT) #TL
 # Acc. right & left wheel, PWM out
+GPIO.setup(outport, GPIO.OUT)
+
+
 AcR = GPIO.PWM(AccR, PWMfq)  #100hz
 AcL = GPIO.PWM(AccL, PWMfq)  #100hz
 AcR.start(0)
