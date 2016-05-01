@@ -164,7 +164,7 @@ while done==False:
                         event=pygame.event.get()
                         Lx = JX.get_axis(0)
                         Rt = (JX.get_axis(5)+1)/2
-                        CMDrelay(0,0,0,0)  # CMDrelay(Br,Bl,Tr,Tl)
+                        CMDrelay(1,1,1,1)  # CMDrelay(Br,Bl,Tr,Tl)
                         if -Lxlim <= Lx <= Lxlim and Rt >= Rtlim :
                             Dr=Cf*Rt
                             Dl=Cc*Dr
@@ -201,7 +201,7 @@ while done==False:
                         event=pygame.event.get()
                         Lx = JX.get_axis(0)
                         Rt = (JX.get_axis(5)+1)/2
-                        CMDrelay(0,0,1,1)  # CMDrelay(Br,Bl,Tr,Tl)
+                        CMDrelay(1,1,0,0)  # CMDrelay(Br,Bl,Tr,Tl)
                         if -Lxlim <= Lx <= Lxlim and Rt >= Rtlim :
                             Dr=Cf*Rt
                             Dl=Cc*Dr
