@@ -1,12 +1,6 @@
 import pygame
 import RPi.GPIO as GPIO
 
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(12, GPIO.OUT)
-
-p = GPIO.PWM(12, 0.5)
-p.start(1)
-
 pygame.init()
 
 #Loop until the user clicks the close button.
@@ -184,6 +178,10 @@ while done==False:
                             Dr=0
                             Dl=0
                             CMD0ini
+                        else
+                            Dr=0
+                            Dl=0
+                            CMD0ini
 
                         CMDpwmCD(Dr,Dl): #CMDpwmCD(Ar,Al): Dr, Dl
                         print("go forward Turn(Lx)= {:>6.2f} -- Throttle(RT) = {:>6.2f}  ===>  D Left={:>6.2f}, D Right={:>6.2f} "\
@@ -214,7 +212,12 @@ while done==False:
                             Dr=0
                             Dl=0
                             CMD0ini
-                        CMDpwmCD(Ar,Al): #CMDpwmCD(Ar,Al): Dr, Dl
+                        else
+                            Dr=0
+                            Dl=0
+                            CMD0ini
+                            
+                        CMDpwmCD(Dr,Dl): #CMDpwmCD(Ar,Al): Dr, Dl
                         print("backward Turn(Lx)= {:>6.2f} -- Throttle(RT) = {:>6.2f}  ===>  D Left={:>6.2f}, D Right={:>6.2f} "\
                               .format(Lx,Rt,Dl,Dr))
                         #
