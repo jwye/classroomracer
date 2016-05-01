@@ -1,4 +1,11 @@
 import pygame
+import RPi.GPIO as GPIO
+
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(12, GPIO.OUT)
+
+p = GPIO.PWM(12, 0.5)
+p.start(1)
 
 pygame.init()
 
@@ -53,6 +60,49 @@ def padprintout():
     .format(i,name,a(0),-a(1),(a(2)+1)/2,a(3),-a(4),(a(5)+1)/2,\
     b(0),b(1),b(2),b(3),b(4),b(5),b(9),b(10),b(6),b(7),b(8), str(hat)))
 
+def CMD0ini():
+    GPIO.output(BrkR, GPIO.LOW)
+    GPIO.output(BrkL, GPIO.LOW)
+    GPIO.output(TrnR, GPIO.LOW)
+    GPIO.output(TrnL, GPIO.LOW)
+    AcR.ChangeDutyCycle(0)
+    AcL.ChangeDutyCycle(0)
+
+def CMDpwmCD(Ar,Al): #CMDpwmCD(Ar,Al): Dr, Dl
+    AcR.ChangeDutyCycle(PWMdcConstant*Ar)
+    AcL.ChangeDutyCycle(PWMdcConstant*Al)
+
+def CMDrelay(Br,Bl,Tr,Tl):  # CMDrelay(Br,Bl,Tr,Tl)
+    GPIO.output(BrkR, Br)
+    GPIO.output(BrkL, Bl)
+    GPIO.output(TrnR, Tr)
+    GPIO.output(TrnL, Tl)
+
+BrkR=29
+BrkL=32
+TrnR=33
+TrnL=35
+AccR=16
+AccL=18
+PWMfq=100
+PWMdcConstant=100
+
+GPIO.cleanup()
+GPIO.setmode(GPIO.BOARD)
+# Break right wheel & left wheel, on/off out
+GPIO.setup(BrkR, GPIO.OUT) #BR
+GPIO.setup(BrkL, GPIO.OUT) #BL
+# Revers right & left wheel, on/off out
+GPIO.setup(TrnR, GPIO.OUT) #TR
+GPIO.setup(TrnL, GPIO.OUT) #TL
+# Acc. right & left wheel, PWM out
+AcR = GPIO.PWM(AccR, PWMfq)  #100hz
+AcL = GPIO.PWM(AccL, PWMfq)  #100hz
+AcR.start(0)
+AcL.start(0)
+
+CMD0ini()
+
 
 
 
@@ -79,6 +129,8 @@ while done==False:
         Rt=0
         Dr=0
         Dl=0
+        CMD0ini
+
 
     elif event.type==pygame.JOYBUTTONDOWN and JX.get_button(7)==1:
         print("REBOOT...")
@@ -105,6 +157,8 @@ while done==False:
                 if event.type == pygame.JOYBUTTONDOWN:
                     if JX.get_button(6)==1 or JX.get_button(7)==1 or JX.get_button(8)==1:
                         GO=0
+                        CMD0ini
+
                         print("wait start command...")
                         break
 
@@ -113,24 +167,31 @@ while done==False:
                         event=pygame.event.get()
                         Lx = JX.get_axis(0)
                         Rt = (JX.get_axis(5)+1)/2
+                        CMDrelay(0,0,0,0)  # CMDrelay(Br,Bl,Tr,Tl)
                         if -Lxlim <= Lx <= Lxlim and Rt >= Rtlim :
                             Dr=Cf*Rt
                             Dl=Cc*Dr
+
                         elif Lx < -Lxlim and Rt >= Rtlim :#turn left
                             Dr=(Cf*Rt)
                             Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
+
                         elif Lx > Lxlim and Rt >= Rtlim :#turn right
                             Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
                             Dl=(Cf*Rt)
+
                         elif Rt < Rtlim:
                             Dr=0
                             Dl=0
+                            CMD0ini
+
+                        CMDpwmCD(Dr,Dl): #CMDpwmCD(Ar,Al): Dr, Dl
                         print("go forward Turn(Lx)= {:>6.2f} -- Throttle(RT) = {:>6.2f}  ===>  D Left={:>6.2f}, D Right={:>6.2f} "\
                               .format(Lx,Rt,Dl,Dr))
                         #
                         clock.wait(20)
                         if JX.get_button(2)==0:
-
+                            CMD0ini
                             print("forward !!BREAK!! Turn(Lx)= {:>6.2f} -- Throttle(RT) = {:>6.2f}  ===>  D Left={:>6.2f}, D Right={:>6.2f} "\
                                   .format(Lx,Rt,Dl,Dr))
 
@@ -139,6 +200,7 @@ while done==False:
                         event=pygame.event.get()
                         Lx = JX.get_axis(0)
                         Rt = (JX.get_axis(5)+1)/2
+                        CMDrelay(0,0,1,1)  # CMDrelay(Br,Bl,Tr,Tl)
                         if -Lxlim <= Lx <= Lxlim and Rt >= Rtlim :
                             Dr=Cf*Rt
                             Dl=Cc*Dr
@@ -151,11 +213,13 @@ while done==False:
                         elif Rt < Rtlim:
                             Dr=0
                             Dl=0
+                            CMD0ini
+                        CMDpwmCD(Ar,Al): #CMDpwmCD(Ar,Al): Dr, Dl
                         print("backward Turn(Lx)= {:>6.2f} -- Throttle(RT) = {:>6.2f}  ===>  D Left={:>6.2f}, D Right={:>6.2f} "\
                               .format(Lx,Rt,Dl,Dr))
                         #
                         clock.wait(20)
                         if JX.get_button(3)==0:
-
+                            CMD0ini
                             print("backward !!BREAK!! Turn(Lx)= {:>6.2f} -- Throttle(RT) = {:>6.2f} ===>  D Left={:>6.2f}, D Right={:>6.2f} "\
                                   .format(Lx,Rt,Dl,Dr))
