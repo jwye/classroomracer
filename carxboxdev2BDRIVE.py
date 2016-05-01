@@ -199,6 +199,7 @@ while done==False:
                             CMDrelay(0,0,0,0)
                         elif JX.get_button(2)==0:
                             CMD0ini
+                            CMDpwmCD(0,0)
                             print("forward !!BREAK!! Turn(Lx)= {:>6.2f} -- Throttle(RT) = {:>6.2f}  ===>  D Left={:>6.2f}, D Right={:>6.2f} "\
                                   .format(Lx,Rt,Dl,Dr))
 
@@ -239,5 +240,6 @@ while done==False:
                             CMDrelay(0,0,0,0)
                         elif JX.get_button(3)==0:
                             CMD0ini
+                            CMDpwmCD(0,0)
                             print("backward !!BREAK!! Turn(Lx)= {:>6.2f} -- Throttle(RT) = {:>6.2f} ===>  D Left={:>6.2f}, D Right={:>6.2f} "\
                                   .format(Lx,Rt,Dl,Dr))
