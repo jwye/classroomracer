@@ -184,7 +184,7 @@ while done==False:
                             Dl=0
                             CMD0ini
 
-                        CMDpwmCD(Dr,Dl): #CMDpwmCD(Ar,Al): Dr, Dl
+                        CMDpwmCD(Dr,Dl) #CMDpwmCD(Ar,Al): Dr, Dl
                         print("go forward Turn(Lx)= {:>6.2f} -- Throttle(RT) = {:>6.2f}  ===>  D Left={:>6.2f}, D Right={:>6.2f} "\
                               .format(Lx,Rt,Dl,Dr))
                         #
@@ -218,7 +218,7 @@ while done==False:
                             Dl=0
                             CMD0ini
 
-                        CMDpwmCD(Dr,Dl): #CMDpwmCD(Ar,Al): Dr, Dl
+                        CMDpwmCD(Dr,Dl) #CMDpwmCD(Ar,Al): Dr, Dl
                         print("backward Turn(Lx)= {:>6.2f} -- Throttle(RT) = {:>6.2f}  ===>  D Left={:>6.2f}, D Right={:>6.2f} "\
                               .format(Lx,Rt,Dl,Dr))
                         #
