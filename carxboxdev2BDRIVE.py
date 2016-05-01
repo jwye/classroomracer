@@ -166,6 +166,7 @@ while done==False:
                         Rt = (JX.get_axis(5)+1)/2
                         CMDrelay(1,1,1,1)  # CMDrelay(Br,Bl,Tr,Tl)
                         if JX.get_button(5)==1:
+                            CMD0ini
                             CMDrelay(0,0,1,1)
                         else:
                             if -Lxlim <= Lx <= Lxlim and Rt >= Rtlim :
@@ -193,8 +194,9 @@ while done==False:
                         print("go forward Turn(Lx)= {:>6.2f} -- Throttle(RT) = {:>6.2f}  ===>  D Left={:>6.2f}, D Right={:>6.2f} "\
                               .format(Lx,Rt,Dl,Dr))
                         #
-                        clock.wait(20)
+                        clock.wait(2)
                         if JX.get_button(5)==1:
+                            CMD0ini
                             CMDrelay(0,0,0,0)
                         else:
                             if JX.get_button(2)==0:
@@ -209,6 +211,7 @@ while done==False:
                         Rt = (JX.get_axis(5)+1)/2
                         CMDrelay(1,1,0,0)  # CMDrelay(Br,Bl,Tr,Tl)
                         if JX.get_button(5)==1:
+                            CMD0ini
                             CMDrelay(0,0,0,0)
                         else:
                             if -Lxlim <= Lx <= Lxlim and Rt >= Rtlim :
@@ -233,8 +236,9 @@ while done==False:
                         print("backward Turn(Lx)= {:>6.2f} -- Throttle(RT) = {:>6.2f}  ===>  D Left={:>6.2f}, D Right={:>6.2f} "\
                               .format(Lx,Rt,Dl,Dr))
                         #
-                        clock.wait(20)
+                        clock.wait(2)
                         if JX.get_button(5)==1:
+                            CMD0ini
                             CMDrelay(0,0,0,0)
                         else:
                             if JX.get_button(3)==0:
