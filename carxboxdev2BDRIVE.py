@@ -168,27 +168,26 @@ while done==False:
                         if JX.get_button(5)==1:
                             CMD0ini
                             CMDrelay(0,0,1,1)
+                        elif -Lxlim <= Lx <= Lxlim and Rt >= Rtlim :
+                            Dr=Cf*Rt
+                            Dl=Cc*Dr
+
+                        elif Lx < -Lxlim and Rt >= Rtlim :#turn left
+                            Dr=(Cf*Rt)
+                            Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
+
+                        elif Lx > Lxlim and Rt >= Rtlim :#turn right
+                            Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
+                            Dl=(Cf*Rt)
+
+                        elif Rt < Rtlim:
+                            Dr=0
+                            Dl=0
+                            CMD0ini
                         else:
-                            if -Lxlim <= Lx <= Lxlim and Rt >= Rtlim :
-                                Dr=Cf*Rt
-                                Dl=Cc*Dr
-
-                            elif Lx < -Lxlim and Rt >= Rtlim :#turn left
-                                Dr=(Cf*Rt)
-                                Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
-
-                            elif Lx > Lxlim and Rt >= Rtlim :#turn right
-                                Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
-                                Dl=(Cf*Rt)
-
-                            elif Rt < Rtlim:
-                                Dr=0
-                                Dl=0
-                                CMD0ini
-                            else:
-                                Dr=0
-                                Dl=0
-                                CMD0ini
+                            Dr=0
+                            Dl=0
+                            CMD0ini
 
                         CMDpwmCD(Dr,Dl) #CMDpwmCD(Ar,Al): Dr, Dl
                         print("go forward Turn(Lx)= {:>6.2f} -- Throttle(RT) = {:>6.2f}  ===>  D Left={:>6.2f}, D Right={:>6.2f} "\
@@ -198,11 +197,10 @@ while done==False:
                         if JX.get_button(5)==1:
                             CMD0ini
                             CMDrelay(0,0,0,0)
-                        else:
-                            if JX.get_button(2)==0:
-                                CMD0ini
-                                print("forward !!BREAK!! Turn(Lx)= {:>6.2f} -- Throttle(RT) = {:>6.2f}  ===>  D Left={:>6.2f}, D Right={:>6.2f} "\
-                                      .format(Lx,Rt,Dl,Dr))
+                        elif JX.get_button(2)==0:
+                            CMD0ini
+                            print("forward !!BREAK!! Turn(Lx)= {:>6.2f} -- Throttle(RT) = {:>6.2f}  ===>  D Left={:>6.2f}, D Right={:>6.2f} "\
+                                  .format(Lx,Rt,Dl,Dr))
 
                     # go forward Lx is JX.get_axis(0)
                     while JX.get_button(3)==1:
@@ -213,24 +211,23 @@ while done==False:
                         if JX.get_button(5)==1:
                             CMD0ini
                             CMDrelay(0,0,0,0)
+                        elif -Lxlim <= Lx <= Lxlim and Rt >= Rtlim :
+                            Dr=Cf*Rt
+                            Dl=Cc*Dr
+                        elif Lx < -Lxlim and Rt >= Rtlim :#turn left
+                            Dr=(Cf*Rt)
+                            Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
+                        elif Lx > Lxlim and Rt >= Rtlim :#turn right
+                            Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
+                            Dl=(Cf*Rt)
+                        elif Rt < Rtlim:
+                            Dr=0
+                            Dl=0
+                            CMD0ini
                         else:
-                            if -Lxlim <= Lx <= Lxlim and Rt >= Rtlim :
-                                Dr=Cf*Rt
-                                Dl=Cc*Dr
-                            elif Lx < -Lxlim and Rt >= Rtlim :#turn left
-                                Dr=(Cf*Rt)
-                                Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
-                            elif Lx > Lxlim and Rt >= Rtlim :#turn right
-                                Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
-                                Dl=(Cf*Rt)
-                            elif Rt < Rtlim:
-                                Dr=0
-                                Dl=0
-                                CMD0ini
-                            else:
-                                Dr=0
-                                Dl=0
-                                CMD0ini
+                            Dr=0
+                            Dl=0
+                            CMD0ini
 
                         CMDpwmCD(Dr,Dl) #CMDpwmCD(Ar,Al): Dr, Dl
                         print("backward Turn(Lx)= {:>6.2f} -- Throttle(RT) = {:>6.2f}  ===>  D Left={:>6.2f}, D Right={:>6.2f} "\
@@ -240,8 +237,7 @@ while done==False:
                         if JX.get_button(5)==1:
                             CMD0ini
                             CMDrelay(0,0,0,0)
-                        else:
-                            if JX.get_button(3)==0:
-                                CMD0ini
-                                print("backward !!BREAK!! Turn(Lx)= {:>6.2f} -- Throttle(RT) = {:>6.2f} ===>  D Left={:>6.2f}, D Right={:>6.2f} "\
-                                      .format(Lx,Rt,Dl,Dr))
+                        elif JX.get_button(3)==0:
+                            CMD0ini
+                            print("backward !!BREAK!! Turn(Lx)= {:>6.2f} -- Throttle(RT) = {:>6.2f} ===>  D Left={:>6.2f}, D Right={:>6.2f} "\
+                                  .format(Lx,Rt,Dl,Dr))
