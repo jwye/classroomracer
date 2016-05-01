@@ -55,10 +55,11 @@ def padprintout():
     b(0),b(1),b(2),b(3),b(4),b(5),b(9),b(10),b(6),b(7),b(8), str(hat)))
 
 def CMD0ini():
-    GPIO.output(BrkR, GPIO.LOW)
-    GPIO.output(BrkL, GPIO.LOW)
-    GPIO.output(TrnR, GPIO.LOW)
-    GPIO.output(TrnL, GPIO.LOW)
+    ini0=1
+    GPIO.output(BrkR, ini0)
+    GPIO.output(BrkL, ini0)
+    GPIO.output(TrnR, ini0)
+    GPIO.output(TrnL, ini0)
     AcR.ChangeDutyCycle(0)
     AcL.ChangeDutyCycle(0)
 
@@ -73,11 +74,12 @@ def CMDrelay(Br,Bl,Tr,Tl):  # CMDrelay(Br,Bl,Tr,Tl)
     GPIO.output(TrnL, Tl)
 
 BrkR=29
-BrkL=32
+BrkL=31
 TrnR=33
 TrnL=35
 AccR=16
 AccL=18
+outport=[BrkR,BrkL,TrnR,TrnL,AccR,AccL]
 PWMfq=100
 PWMdcConstant=100
 
