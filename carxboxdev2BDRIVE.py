@@ -55,7 +55,7 @@ def padprintout():
     b(0),b(1),b(2),b(3),b(4),b(5),b(9),b(10),b(6),b(7),b(8), str(hat)))
 
 def CMD0ini():
-    ini0=1
+    ini0=0
     GPIO.output(BrkR, ini0)
     GPIO.output(BrkL, ini0)
     GPIO.output(TrnR, ini0)
@@ -72,6 +72,8 @@ def CMDrelay(Br,Bl,Tr,Tl):  # CMDrelay(Br,Bl,Tr,Tl)
     GPIO.output(BrkL, Bl)
     GPIO.output(TrnR, Tr)
     GPIO.output(TrnL, Tl)
+
+
 
 BrkR=29
 BrkL=31
@@ -98,7 +100,7 @@ AcL.start(0)
 
 CMD0ini()
 
-
+if
 
 
 # -------- Main Program Loop -----------
