@@ -196,7 +196,7 @@ while done==False:
                         clock.wait(2)
                         if JX.get_button(5)==1:
                             CMD0ini
-                            CMDrelay(0,0,0,0)
+                            CMDrelay(0,0,1,1)
                         elif JX.get_button(2)==0:
                             CMD0ini
                             CMDpwmCD(0,0)
