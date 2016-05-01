@@ -100,7 +100,7 @@ AcL.start(0)
 
 CMD0ini()
 
-if
+
 
 
 # -------- Main Program Loop -----------
