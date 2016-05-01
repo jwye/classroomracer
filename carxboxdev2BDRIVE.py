@@ -82,7 +82,7 @@ TrnL=35
 AccR=16
 AccL=18
 outport=[BrkR,BrkL,TrnR,TrnL,AccR,AccL]
-PWMfq=100
+PWMfq=10000
 PWMdcConstant=100
 
 GPIO.cleanup()
