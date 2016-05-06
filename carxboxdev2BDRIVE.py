@@ -67,10 +67,10 @@ def CMDpwmCD(Ar,Al): #CMDpwmCD(Ar,Al): Dr, Dl
     AcR.ChangeDutyCycle(PWMdcConstant*Ar)
     AcL.ChangeDutyCycle(PWMdcConstant*Al)
 
-def CMDrelay(Br,Bl,Tr,Tl):  # CMDrelay(Br,Bl,Tr,Tl)
+def CMDrelay(Br,Tr,Bl,Tl):  # CMDrelay(Br,Bl,Tr,Tl)
     GPIO.output(BrkR, Br)
-    GPIO.output(BrkL, Bl)
     GPIO.output(TrnR, Tr)
+    GPIO.output(BrkL, Bl)
     GPIO.output(TrnL, Tl)
 
 
