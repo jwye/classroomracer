@@ -23,7 +23,7 @@ Ct=0.6  # Ct is for Lx turning,
 Cc=1   # center calibr
 Lxlim=0.12
 Rtlim=0.01
-GO=0
+GO=1
 p=0
 
 
@@ -76,13 +76,13 @@ def CMDrelay(Br,Bl,Tr,Tl):  # CMDrelay(Br,Bl,Tr,Tl)
 
 
 BrkR=29
-BrkL=31
-TrnR=33
+TrnR=31
+BrkL=33
 TrnL=35
-AccR=16
-AccL=18
+AccR=18
+AccL=16
 outport=[BrkR,BrkL,TrnR,TrnL,AccR,AccL]
-PWMfq=10000
+PWMfq=2500
 PWMdcConstant=100
 
 GPIO.cleanup()
@@ -106,6 +106,11 @@ CMD0ini()
 # -------- Main Program Loop -----------
 
 J_count = pygame.joystick.get_count()
+if J_count == 0:
+    print("No Joystick and QUIT")
+    pygame.quit()
+    quit()
+
 for i in range(J_count):
 
     JX = pygame.joystick.Joystick(i)
@@ -164,10 +169,11 @@ while done==False:
                         event=pygame.event.get()
                         Lx = JX.get_axis(0)
                         Rt = (JX.get_axis(5)+1)/2
-                        CMDrelay(1,1,1,1)  # CMDrelay(Br,Bl,Tr,Tl)
+                        CMDrelay(0,1,0,1)  # CMDrelay(Br,Tr,Bl,Tl)
                         if JX.get_button(5)==1:
-                            CMD0ini
-                            CMDrelay(0,0,1,1)
+                            #CMD0ini
+                            CMDpwmCD(0,0)
+                            CMDrelay(1,1,1,1) #break
                         elif -Lxlim <= Lx <= Lxlim and Rt >= Rtlim :
                             Dr=Cf*Rt
                             Dl=Cc*Dr
@@ -183,11 +189,13 @@ while done==False:
                         elif Rt < Rtlim:
                             Dr=0
                             Dl=0
-                            CMD0ini
+                            CMDpwmCD(0,0)
+                            CMDrelay(0,1,0,1) #no break
                         else:
                             Dr=0
                             Dl=0
-                            CMD0ini
+                            CMDpwmCD(0,0)
+                            CMDrelay(0,1,0,1) #no break
 
                         CMDpwmCD(Dr,Dl) #CMDpwmCD(Ar,Al): Dr, Dl
                         print("go forward Turn(Lx)= {:>6.2f} -- Throttle(RT) = {:>6.2f}  ===>  D Left={:>6.2f}, D Right={:>6.2f} "\
@@ -195,11 +203,13 @@ while done==False:
                         #
                         clock.wait(2)
                         if JX.get_button(5)==1:
-                            CMD0ini
-                            CMDrelay(0,0,1,1)
-                        elif JX.get_button(2)==0:
-                            CMD0ini
+                            #CMD0ini
                             CMDpwmCD(0,0)
+                            CMDrelay(1,1,1,1) #break
+                        elif JX.get_button(2)==0:
+                            #CMD0ini
+                            CMDpwmCD(0,0)
+                            CMDrelay(1,1,1,1)
                             print("forward !!BREAK!! Turn(Lx)= {:>6.2f} -- Throttle(RT) = {:>6.2f}  ===>  D Left={:>6.2f}, D Right={:>6.2f} "\
                                   .format(Lx,Rt,Dl,Dr))
 
@@ -208,10 +218,11 @@ while done==False:
                         event=pygame.event.get()
                         Lx = JX.get_axis(0)
                         Rt = (JX.get_axis(5)+1)/2
-                        CMDrelay(1,1,0,0)  # CMDrelay(Br,Bl,Tr,Tl)
+                        CMDrelay(0,0,0,0)  # CMDrelay(Br,Tr,Bl,Tl)
                         if JX.get_button(5)==1:
-                            CMD0ini
-                            CMDrelay(0,0,0,0)
+                            #CMD0ini
+                            CMDpwmCD(0,0)
+                            CMDrelay(1,0,1,0) #break
                         elif -Lxlim <= Lx <= Lxlim and Rt >= Rtlim :
                             Dr=Cf*Rt
                             Dl=Cc*Dr
@@ -224,11 +235,13 @@ while done==False:
                         elif Rt < Rtlim:
                             Dr=0
                             Dl=0
-                            CMD0ini
+                            CMDpwmCD(0,0)
+                            CMDrelay(0,0,0,0) #no break
                         else:
                             Dr=0
                             Dl=0
-                            CMD0ini
+                            CMDpwmCD(0,0)
+                            CMDrelay(0,0,0,0) #no break
 
                         CMDpwmCD(Dr,Dl) #CMDpwmCD(Ar,Al): Dr, Dl
                         print("backward Turn(Lx)= {:>6.2f} -- Throttle(RT) = {:>6.2f}  ===>  D Left={:>6.2f}, D Right={:>6.2f} "\
@@ -236,10 +249,10 @@ while done==False:
                         #
                         clock.wait(2)
                         if JX.get_button(5)==1:
-                            CMD0ini
-                            CMDrelay(0,0,0,0)
-                        elif JX.get_button(3)==0:
-                            CMD0ini
                             CMDpwmCD(0,0)
+                            CMDrelay(1,0,1,0) #break
+                        elif JX.get_button(3)==0:
+                            CMDpwmCD(0,0)
+                            CMDrelay(1,0,1,0) #break
                             print("backward !!BREAK!! Turn(Lx)= {:>6.2f} -- Throttle(RT) = {:>6.2f} ===>  D Left={:>6.2f}, D Right={:>6.2f} "\
                                   .format(Lx,Rt,Dl,Dr))

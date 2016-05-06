@@ -59,6 +59,11 @@ def padprintout():
 # -------- Main Program Loop -----------
 
 J_count = pygame.joystick.get_count()
+if J_count == 0:
+    print("No Joystick and QUIT")
+    pygame.quit()
+    quit()
+
 for i in range(J_count):
 
     JX = pygame.joystick.Joystick(i)
@@ -125,6 +130,9 @@ while done==False:
                         elif Rt < Rtlim:
                             Dr=0
                             Dl=0
+                        else:
+                            Dr=0
+                            Dl=0
                         print("go forward Turn(Lx)= {:>6.2f} -- Throttle(RT) = {:>6.2f}  ===>  D Left={:>6.2f}, D Right={:>6.2f} "\
                               .format(Lx,Rt,Dl,Dr))
                         #
@@ -149,6 +157,9 @@ while done==False:
                             Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
                             Dl=(Cf*Rt)
                         elif Rt < Rtlim:
+                            Dr=0
+                            Dl=0
+                        else:
                             Dr=0
                             Dl=0
                         print("backward Turn(Lx)= {:>6.2f} -- Throttle(RT) = {:>6.2f}  ===>  D Left={:>6.2f}, D Right={:>6.2f} "\
