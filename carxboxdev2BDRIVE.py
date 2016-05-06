@@ -160,8 +160,11 @@ while done==False:
                     if JX.get_button(6)==1 or JX.get_button(7)==1 or JX.get_button(8)==1:
                         GO=0
                         CMD0ini
-
                         print("wait start command...")
+                    if JX.get_button(5)==1:
+                        #CMD0ini
+                        CMDpwmCD(0,0)
+                        CMDrelay(1,1,1,1) #break
                         break
 
                     # go forward Lx is JX.get_axis(0)
