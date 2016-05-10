@@ -164,13 +164,14 @@ while done==False:
                         GO=0
                         CMD0ini
                         print("wait start command...")
+                        break
+
                     elif JX.get_button(5)==1:
                         #CMD0ini
                         CMDpwmCD(0,0)
                         CMDrelay(1,1,1,1) #break
                     else:
                         CMDrelay(0,1,0,1)  # CMDrelay(Br,Tr,Bl,Tl)
-                        break
 
                     # go forward Lx is JX.get_axis(0)
                     while JX.get_button(2)==1: #xboxpad X
