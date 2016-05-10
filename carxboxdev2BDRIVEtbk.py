@@ -168,7 +168,7 @@ while done==False:
                         #CMD0ini
                         CMDpwmCD(0,0)
                         CMDrelay(1,1,1,1) #break
-                    else
+                    else:
                         CMDrelay(0,1,0,1)  # CMDrelay(Br,Tr,Bl,Tl)
                         break
 
