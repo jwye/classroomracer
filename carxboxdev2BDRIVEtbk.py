@@ -21,8 +21,10 @@ Dl=00
 Cf=1  # Cf is constant for  Rt,
 Ct=0.6  # Ct is for Lx turning,
 Cc=1   # center calibr
+CDT=1/2
+trnC=113
 Lxlim=0.12
-Rtlim=0.01
+Rtlim=0.005
 GO=1
 p=0
 
@@ -161,10 +163,12 @@ while done==False:
                         GO=0
                         CMD0ini
                         print("wait start command...")
-                    if JX.get_button(5)==1:
+                    elif JX.get_button(5)==1:
                         #CMD0ini
                         CMDpwmCD(0,0)
                         CMDrelay(1,1,1,1) #break
+                    else
+                        CMDrelay(0,1,0,1)  # CMDrelay(Br,Tr,Bl,Tl)
                         break
 
                     # go forward Lx is JX.get_axis(0)
@@ -172,7 +176,7 @@ while done==False:
                         event=pygame.event.get()
                         Lx = JX.get_axis(0)
                         Rt = (JX.get_axis(5)+1)/2
-                        CMDrelay(0,1,0,1)  # CMDrelay(Br,Tr,Bl,Tl)
+
                         if JX.get_button(5)==1:
                             #CMD0ini
                             CMDpwmCD(0,0)
@@ -183,11 +187,21 @@ while done==False:
 
                         elif Lx < -Lxlim and Rt >= Rtlim :#turn left
                             Dr=(Cf*Rt)
-                            Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
+                            Dl=(Cf*Rt)-(Cf*Rt*((Ct*abs(Lx))**CDT))
+                            if Dl > 0.96:
+                                CMDrelay(0,1,1,1) #left break
+                                TC=round(abs(Lx)*trnC)
+                                clock.wait(TC)
+                                CMDrelay(0,1,0,1) #left break
 
                         elif Lx > Lxlim and Rt >= Rtlim :#turn right
-                            Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
+                            Dr=(Cf*Rt)-(Cf*Rt*((Ct*abs(Lx))**CDT))
                             Dl=(Cf*Rt)
+                            if Dr > 0.96:
+                                CMDrelay(1,1,0,1) #left break
+                                TC=round(abs(Lx)*trnC)
+                                clock.wait(TC)
+                                CMDrelay(0,1,0,1) #left break
 
                         elif Rt < Rtlim:
                             Dr=0
@@ -221,7 +235,7 @@ while done==False:
                         event=pygame.event.get()
                         Lx = JX.get_axis(0)
                         Rt = (JX.get_axis(5)+1)/2
-                        CMDrelay(0,0,0,0)  # CMDrelay(Br,Tr,Bl,Tl)
+
                         if JX.get_button(5)==1:
                             #CMD0ini
                             CMDpwmCD(0,0)
