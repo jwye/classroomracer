@@ -19,12 +19,13 @@ global Rt
 Dr=00
 Dl=00
 Cf=1  # Cf is constant for  Rt,
-Ct=0.6  # Ct is for Lx turning,
+Ct=1  # Ct is for Lx turning,
 Cc=1   # center calibr
 CDT=1/2
+CtBKTH=0.98
 trnC=113
 Lxlim=0.12
-Rtlim=0.005
+Rtlim=0.002
 GO=1
 p=0
 
@@ -188,8 +189,8 @@ while done==False:
                         elif Lx < -Lxlim and Rt >= Rtlim :#turn left
                             Dr=(Cf*Rt)
                             Dl=(Cf*Rt)-(Cf*Rt*((Ct*abs(Lx))**CDT))
-                            if Dl > 0.96:
-                                CMDrelay(0,1,1,1) #left break
+                            if abs(Lx) > CtBKTH:
+                                CMDrelay(1,1,0,1) #left break
                                 TC=round(abs(Lx)*trnC)
                                 clock.wait(TC)
                                 CMDrelay(0,1,0,1) #left break
@@ -197,7 +198,7 @@ while done==False:
                         elif Lx > Lxlim and Rt >= Rtlim :#turn right
                             Dr=(Cf*Rt)-(Cf*Rt*((Ct*abs(Lx))**CDT))
                             Dl=(Cf*Rt)
-                            if Dr > 0.96:
+                            if abs(Lx) > CtBKTH:
                                 CMDrelay(1,1,0,1) #left break
                                 TC=round(abs(Lx)*trnC)
                                 clock.wait(TC)
