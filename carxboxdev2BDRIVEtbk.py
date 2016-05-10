@@ -25,7 +25,7 @@ CDT=1/2
 CtBKTH=0.98
 trnC=113
 Lxlim=0.12
-Rtlim=0.002
+Rtlim=0.0005
 GO=1
 p=0
 
@@ -194,16 +194,16 @@ while done==False:
                                 CMDrelay(1,1,0,1) #left break
                                 TC=round(abs(Lx)*trnC)
                                 clock.wait(TC)
-                                CMDrelay(0,1,0,1) #left break
+                                CMDrelay(0,1,0,1)
 
                         elif Lx > Lxlim and Rt >= Rtlim :#turn right
                             Dr=(Cf*Rt)-(Cf*Rt*((Ct*abs(Lx))**CDT))
                             Dl=(Cf*Rt)
                             if abs(Lx) > CtBKTH:
-                                CMDrelay(1,1,0,1) #left break
+                                CMDrelay(0,1,1,1) #right break
                                 TC=round(abs(Lx)*trnC)
                                 clock.wait(TC)
-                                CMDrelay(0,1,0,1) #left break
+                                CMDrelay(0,1,0,1) #
 
                         elif Rt < Rtlim:
                             Dr=0
