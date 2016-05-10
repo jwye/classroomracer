@@ -184,10 +184,12 @@ while done==False:
                             CMDpwmCD(0,0)
                             CMDrelay(1,1,1,1) #break
                         elif -Lxlim <= Lx <= Lxlim and Rt >= Rtlim :
+                            CMDrelay(0,1,0,1) #no break
                             Dr=Cf*Rt
                             Dl=Cc*Dr
 
                         elif Lx < -Lxlim and Rt >= Rtlim :#turn left
+                            CMDrelay(0,1,0,1) #no break
                             Dr=(Cf*Rt)
                             Dl=(Cf*Rt)-(Cf*Rt*((Ct*abs(Lx))**CDT))
                             if abs(Lx) > CtBKTH:
@@ -197,6 +199,7 @@ while done==False:
                                 CMDrelay(0,1,0,1)
 
                         elif Lx > Lxlim and Rt >= Rtlim :#turn right
+                            CMDrelay(0,1,0,1) #no break
                             Dr=(Cf*Rt)-(Cf*Rt*((Ct*abs(Lx))**CDT))
                             Dl=(Cf*Rt)
                             if abs(Lx) > CtBKTH:
