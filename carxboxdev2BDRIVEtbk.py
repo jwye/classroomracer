@@ -179,7 +179,7 @@ while done==False:
                         Lx = JX.get_axis(0)
                         Rt = (JX.get_axis(5)+1)/2
 
-                        if JX.get_button(5)==1:
+                        if JX.get_button(5)==1 or JX.get_button(4)==1:
                             #CMD0ini
                             CMDpwmCD(0,0)
                             CMDrelay(1,1,1,1) #break
@@ -224,7 +224,7 @@ while done==False:
                               .format(Lx,Rt,Dl,Dr))
                         #
                         clock.wait(2)
-                        if JX.get_button(5)==1:
+                        if JX.get_button(5)==1 or JX.get_button(4)==1:
                             #CMD0ini
                             CMDpwmCD(0,0)
                             CMDrelay(1,1,1,1) #break
@@ -241,17 +241,20 @@ while done==False:
                         Lx = JX.get_axis(0)
                         Rt = (JX.get_axis(5)+1)/2
 
-                        if JX.get_button(5)==1:
+                        if JX.get_button(5)==1 or JX.get_button(4)==1:
                             #CMD0ini
                             CMDpwmCD(0,0)
                             CMDrelay(1,0,1,0) #break
                         elif -Lxlim <= Lx <= Lxlim and Rt >= Rtlim :
+                            CMDrelay(0,0,0,0) #no break
                             Dr=Cf*Rt
                             Dl=Cc*Dr
                         elif Lx < -Lxlim and Rt >= Rtlim :#turn left
+                            CMDrelay(0,0,0,0) #no break
                             Dr=(Cf*Rt)
                             Dl=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
                         elif Lx > Lxlim and Rt >= Rtlim :#turn right
+                            CMDrelay(0,0,0,0) #no break
                             Dr=(Cf*Rt)-(Cf*Rt*Ct*abs(Lx))
                             Dl=(Cf*Rt)
                         elif Rt < Rtlim:
@@ -270,7 +273,7 @@ while done==False:
                               .format(Lx,Rt,Dl,Dr))
                         #
                         clock.wait(2)
-                        if JX.get_button(5)==1:
+                        if JX.get_button(5)==1 or JX.get_button(4)==1:
                             CMDpwmCD(0,0)
                             CMDrelay(1,0,1,0) #break
                         elif JX.get_button(3)==0:
